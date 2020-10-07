@@ -39,6 +39,11 @@
       }
     ]
   },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "Your location information is used to determine the display of the Mini Program location API."
+    }
+  },
   "style": "v2",
   "sitemapLocation": "sitemap.json"
 }

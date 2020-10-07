@@ -4,16 +4,22 @@ const app = getApp()
 
 Page({
   data: {
-    motto: 'Hello World',
+    // 정적 데이터
+    logoUrl: '/resources/images/Dongguk-logo.png',
+    logoText: '东国大学校 小程序',  // 동국대학교 미니프로그램
+
+    bodyText: '此应用程序旨在帮助在东国大学学习的中国学生获取有关设施所在地的信息。',
+
+    // 동적 데이터
     userInfo: {},
     hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    canIUse: wx.canIUse('button.open-type.getUserInfo') // 해당 버전에서 ${component}.${attribute}.${option} API가 사용 가능한지 확인한다.
   },
   //事件处理函数
   bindViewTap: function() {
-    // wx.navigateTo({
-    //   url: '../logs/logs'
-    // })
+    wx.switchTab({
+      url: '/pages/userProfile/userProfile'
+    })
   },
   onLoad: function () {
     if (app.globalData.userInfo) {
@@ -46,7 +52,7 @@ Page({
       })
     }
   },
-  getUserInfo: function(e) {
+  fetchUserInfo: function(e) {
     console.log(e)
     app.globalData.userInfo = e.detail.userInfo
     this.setData({
