@@ -1,0 +1,44 @@
+{
+  "pages":[
+    "pages/home/home",
+    "pages/location/location",
+    "pages/translation/translation",
+    "pages/userProfile/userProfile"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "AgenU",
+    "navigationBarTextStyle":"black"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "iconPath": "/resources/images/tabBar/home.png",
+        "selectedIconPath": "/resources/images/tabBar/home-color.png",
+        "text": "Home"
+      },
+      {
+        "pagePath": "pages/location/location",
+        "iconPath": "/resources/images/tabBar/placeholder.png",
+        "selectedIconPath": "/resources/images/tabBar/placeholder-color.png",
+        "text": "Location"
+      },
+      {
+        "pagePath": "pages/translation/translation",
+        "iconPath": "/resources/images/tabBar/info.png",
+        "selectedIconPath": "/resources/images/tabBar/info-color.png",
+        "text": "Translation"
+      },
+      {
+        "pagePath": "pages/userProfile/userProfile",
+        "iconPath": "/resources/images/tabBar/user.png",
+        "selectedIconPath": "/resources/images/tabBar/user-color.png",
+        "text": "User"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}
