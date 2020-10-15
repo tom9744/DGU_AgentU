@@ -1,6 +1,7 @@
 /**index.wxss**/
 .header {
   display: flex;
+  justify-content: center;
   align-items: center;
   margin: 20rpx 0rpx;
 }
@@ -16,11 +17,27 @@
   font-weight: bold;
 }
 
-.userinfo {
+.body {
   display: flex;
   flex-direction: column;
+  padding: 0rpx 100rpx;
+  margin-bottom: 30rpx;
+}
+
+.card {
+  width: 80%;  /* 가로 길이 85% */
+  min-height: 250rpx;  /* 높이 최소값 설정 */
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  min-height: 200rpx;  /* 높이 최소값 설정 */
+
+  border-radius: 30rpx;
+  box-shadow: 0rpx 3rpx 10rpx 3rpx gray;
+
+  margin: 20rpx 0rpx;
+  padding: 35rpx;
 }
 
 .userinfo-avatar {
@@ -31,9 +48,22 @@
 }
 
 .userinfo-nickname {
-  color: #aaa;
+  color: #000000;
 }
 
-.body {
-  padding: 0rpx 30rpx;
+.detail__text {
+  font-size: 40rpx;
+  font-weight: bold;
+}
+
+.detail__img__wrapper {
+  display: flex;
+  flex-wrap: wrap;  /* 화면 넘어가는 경우 자르지 않음 */ 
+  margin: 30rpx 0rpx;
+}
+
+.detail__img {
+  width: 100rpx;
+  height: 100rpx;
+  margin: 10rpx;
 }

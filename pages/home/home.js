@@ -10,6 +10,13 @@ Page({
 
     bodyText: '此应用程序旨在帮助在东国大学学习的中国学生获取有关设施所在地的信息。',
 
+    almondUrl: '/resources/images/allergies/almond.png',
+    eggUrl: '/resources/images/allergies/egg.png',
+    glutenUrl: '/resources/images/allergies/gluten.png',
+    milkUrl: '/resources/images/allergies/milk.png',
+
+    mapUrl: '/resources/images/Tmap.png',
+
     // 동적 데이터
     userInfo: {},
     hasUserInfo: false,

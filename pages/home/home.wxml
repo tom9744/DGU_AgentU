@@ -4,14 +4,12 @@
     <image class="header__logo" src="{{logoUrl}}" mode="aspectFit"></image>
     <text class="header__text">{{logoText}}</text>
   </view>
-  
+
   <view class="body">
-    <text>
-      {{bodyText}} 
-    </text>
+    <text class="body__text">{{bodyText}}</text>
   </view>
 
-  <view class="userinfo">
+  <view class="card">
     <!-- userInfo가 없고, getUserInfo API가 사용가능한 경우...bindgetuserinfo Attribute에 함수 설정 -->
     <block wx:if="{{!hasUserInfo && canIUse}}">
       <button open-type="getUserInfo" bindgetuserinfo="fetchUserInfo"
@@ -21,5 +19,36 @@
       <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
       <text class="userinfo-nickname">欢迎, {{userInfo.nickName}}</text>
     </block>
+  </view>
+
+  <view class="card">
+    <view class="detail__text">
+      <text>你对什么过敏吗?</text>
+    </view>
+    
+    <view class="detail__img__wrapper">
+      <image class="detail__img" src="{{glutenUrl}}" mode="aspectFit"></image>
+      <image class="detail__img" src="{{almondUrl}}" mode="aspectFit"></image>
+      <image class="detail__img" src="{{milkUrl}}" mode="aspectFit"></image>
+      <image class="detail__img" src="{{eggUrl}}" mode="aspectFit"></image>
+    </view>
+
+    <view class="detail__description">
+      <text>通过使用此应用程序，您可以避免可能对您产生食物过敏的成分。它基本上显示了导致食物过敏的食品成分列表，但是如果您注册了自己的过敏列表，它将自动让您知道要避免使用哪种菜肴。</text>
+    </view>
+  </view>
+
+  <view class="card">
+    <view class="detail__text">
+      <text>要知道你在哪里。</text>
+    </view>
+    
+    <view class="detail__img__wrapper">
+      <image style="height: 200rpx;" src="{{mapUrl}}" mode="aspectFill"></image>
+    </view>
+
+    <view class="detail__description">
+      <text>Lorem Ipsum，也称乱数假文或者哑元文本， 是印刷及排版领域所常用的虚拟文字。由于曾经一台匿名的打印机刻意打乱了一盒印刷字体从而造出一本字体样品书，Lorem Ipsum从西元15世纪起就被作为此领域的标准文本使用。</text>
+    </view>
   </view>
 </view>
