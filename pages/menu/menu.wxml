@@ -1,0 +1,33 @@
+<!--pages/menu/menu.wxml-->
+<view class="container">
+  <view class="placeInfo" style="text-align: center;">
+    <text>{{ title }} \n</text>
+    <text>{{ location }} \n</text>
+    <text>{{ operatingTime }}</text>
+  </view>
+
+  <view class="filter">
+    <view id="0" bindtap="onClick">전체보기</view>
+    <view id="1" bindtap="onClick">밀</view>
+    <view id="2" bindtap="onClick">견과류</view>
+    <view id="3" bindtap="onClick">난류</view>
+    <view id="4" bindtap="onClick">유당</view>
+  </view>
+
+  <view> 현재 필터: {{filter[filterNumber]}}</view>
+  <scroll-view 
+    scroll-y class="menu" 
+  >
+    <block wx:for="{{menu}}" wx:key="item" wx:if="{{item.allergy == filter[filterNumber]}}">
+      <view class="card">
+        <view>
+          {{item.name}}
+          {{item.price}}
+        </view>
+        <view>
+          <image wx:if="{{item.allergy != ''}}" style="width: 50rpx;" src="{{item.allergyicon}}" mode="widthFix"> </image>
+        </view>
+      </view>
+    </block>
+  </scroll-view>
+</view>

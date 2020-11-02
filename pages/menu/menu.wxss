@@ -1,0 +1,47 @@
+/* pages/menu/menu.wxss */
+.container {
+  height: 100vh;
+  width: 100%;
+  padding: 40rpx;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.placeInfo {
+  width: 90%;
+  background-color: gray;
+}
+
+.filter {
+  height: 100rpx;
+  width: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;  
+}
+
+.menu {
+  flex-grow: 1;
+  padding: 10px;
+  width: 90%;
+  /* background-color: lightgray; */
+
+  display: flex;
+  justify-items: center;
+}
+
+.card {
+  width: 80%;  /* 가로 길이 85% */
+  min-height: 100rpx;  /* 높이 최소값 설정 */
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  border-radius: 30rpx;
+  box-shadow: 0rpx 3rpx 10rpx 3rpx gray;
+
+  margin: 20rpx auto;
+  padding: 35rpx;
+}

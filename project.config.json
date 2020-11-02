@@ -28,11 +28,13 @@
       "disablePlugins": [],
       "outputPath": ""
     },
+    "enableEngineNative": false,
     "useIsolateContext": true,
     "useCompilerModule": true,
     "userConfirmedUseCompilerModuleSwitch": false,
     "packNpmManually": false,
-    "packNpmRelationList": []
+    "packNpmRelationList": [],
+    "minifyWXSS": true
   },
   "compileType": "miniprogram",
   "libVersion": "2.13.1",
@@ -46,29 +48,29 @@
   "simulatorType": "wechat",
   "simulatorPluginLibVersion": {},
   "condition": {
-    "search": {
-      "current": -1,
-      "list": []
-    },
-    "conversation": {
-      "current": -1,
+    "plugin": {
       "list": []
     },
     "game": {
-      "current": -1,
-      "list": []
-    },
-    "plugin": {
-      "current": -1,
       "list": []
     },
     "gamePlugin": {
-      "current": -1,
       "list": []
     },
     "miniprogram": {
-      "current": -1,
-      "list": []
+      "list": [
+        {
+          "name": "Location Map",
+          "pathName": "pages/location/location",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "Menu",
+          "pathName": "pages/menu/menu",
+          "scene": null
+        }
+      ]
     }
   }
 }

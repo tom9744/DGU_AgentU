@@ -2,13 +2,14 @@
   "pages":[
     "pages/home/home",
     "pages/location/location",
+    "pages/menu/menu",
     "pages/translation/translation",
     "pages/userProfile/userProfile"
   ],
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "AgenU",
+    "navigationBarTitleText": "AgentU",
     "navigationBarTextStyle":"black"
   },
   "tabBar": {
