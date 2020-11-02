@@ -1,0 +1,21 @@
+<!--pages/userProfile/userProfile.wxml-->
+<view class="container">
+<h1 class="header__text">Purchase Log</h1>
+</view>
+
+<view class="container">
+  <view class="card">
+    <view>
+      <text>결제 날짜 : {{purchaseDate}}</text>
+      <view>
+        <view class="pcPrice">
+          <text>결제액 : {{purchasePrice}}</text>
+        </view>
+      </view>
+    </view>
+      <text class="pcList">결제 목록</text>
+      <view wx:for="{{purchaseItems}}">
+        {{item}}
+      </view>
+  </view>
+</view>

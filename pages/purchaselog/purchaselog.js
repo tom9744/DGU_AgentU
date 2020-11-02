@@ -5,7 +5,9 @@ Page({
    * Page initial data
    */
   data: {
-
+    purchaseDate: null,
+    purchaseItems: ["짬뽕", "탕수육"],
+    purchasePrice: null
   },
 
   /**

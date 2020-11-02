@@ -3,12 +3,12 @@
     "pages/home/home",
     "pages/location/location",
     "pages/translation/translation",
-    "pages/userProfile/userProfile"
+    "pages/purchaselog/purchaselog"
   ],
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "AgenU",
+    "navigationBarTitleText": "AgentU",
     "navigationBarTextStyle":"black"
   },
   "tabBar": {
@@ -32,10 +32,10 @@
         "text": "Translation"
       },
       {
-        "pagePath": "pages/userProfile/userProfile",
-        "iconPath": "/resources/images/tabBar/user.png",
-        "selectedIconPath": "/resources/images/tabBar/user-color.png",
-        "text": "User"
+        "pagePath": "pages/purchaselog/purchaselog",
+        "iconPath": "/resources/images/tabBar/purchase-log.png",
+        "selectedIconPath": "/resources/images/tabBar/purchase-log-color.png",
+        "text": "Purchase log"
       }
     ]
   },

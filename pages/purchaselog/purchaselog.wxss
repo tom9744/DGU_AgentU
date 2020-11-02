@@ -1,0 +1,40 @@
+/**index.wxss**/
+.header__text {
+  font-size: 50rpx;
+  font-weight: bold;
+}
+
+.card {
+  width: 80%;  /* 가로 길이 85% */
+  min-height: 200rpx;  /* 높이 최소값 설정 */
+
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+
+  border-radius: 30rpx;
+  box-shadow: 0rpx 3rpx 10rpx 3rpx gray;
+
+  margin: 20rpx 0rpx;
+  padding: 35rpx;
+}
+
+.pcImage {
+  width: 200rpx;
+  height: 200rpx;
+  float: left;
+}
+
+.pcName {
+  font-size: 50rpx;
+  float: left;
+}
+.pcPrice {
+  position: relative;
+  font-size: 70rpx;
+  float: right;
+}
+
+.pcList {
+  font-size : 50rpx;
+}
