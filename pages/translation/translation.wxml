@@ -1,2 +1,20 @@
 <!--pages/translation/translation.wxml-->
-<text>pages/translation/translation.wxml</text>
+<view class="container">
+<h1 class="header__text">Translation</h1>
+</view>
+
+<view class="container">
+  <view class="card">
+    <textarea id="transText" bindinput="putText" class="textinputSize" type="text" placeholder="put your article"/>
+  </view>
+</view>
+
+<view class="container">
+<image bindtap="translateText" class="arrowSize" src="https://www.flaticon.com/svg/static/icons/svg/248/248537.svg"/>
+</view>
+
+<view class="container">
+  <view class="card">
+<textarea class="textinputSize">{{resultText}}</textarea>
+  </view>
+</view>

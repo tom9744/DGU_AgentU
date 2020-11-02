@@ -1,1 +1,36 @@
-/* pages/translation/translation.wxss */
+/**index.wxss**/
+.header__text {
+  font-size: 50rpx;
+  font-weight: bold;
+}
+
+.card {
+  width: 80%;  /* 가로 길이 85% */
+  min-height: 250rpx;  /* 높이 최소값 설정 */
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 30rpx;
+  box-shadow: 0rpx 3rpx 10rpx 3rpx gray;
+
+  margin: 20rpx 0rpx;
+  padding: 35rpx;
+}
+
+.detail__img {
+  width: 100rpx;
+  height: 100rpx;
+  margin: 10rpx;
+}
+
+.arrowSize {
+  width: 50rpx;
+  height: 50rpx;
+}
+
+.textinputSize {
+  width: 100%;
+}
