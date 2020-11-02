@@ -4,7 +4,7 @@
     "pages/location/location",
     "pages/menu/menu",
     "pages/translation/translation",
-    "pages/userProfile/userProfile"
+    "pages/purchaselog/purchaselog"
   ],
   "window":{
     "backgroundTextStyle":"light",
@@ -33,10 +33,10 @@
         "text": "Translation"
       },
       {
-        "pagePath": "pages/userProfile/userProfile",
-        "iconPath": "/resources/images/tabBar/user.png",
-        "selectedIconPath": "/resources/images/tabBar/user-color.png",
-        "text": "User"
+        "pagePath": "pages/purchaselog/purchaselog",
+        "iconPath": "/resources/images/tabBar/purchase-log.png",
+        "selectedIconPath": "/resources/images/tabBar/purchase-log-color.png",
+        "text": "Purchase log"
       }
     ]
   },

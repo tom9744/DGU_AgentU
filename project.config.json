@@ -6,7 +6,7 @@
   "setting": {
     "urlCheck": true,
     "es6": true,
-    "enhance": false,
+    "enhance": true,
     "postcss": true,
     "preloadBackgroundData": false,
     "minified": true,
@@ -38,7 +38,7 @@
   },
   "compileType": "miniprogram",
   "libVersion": "2.13.1",
-  "appid": "wxe3845ca2784af171",
+  "appid": "wxbe441a913c9f26a7",
   "projectname": "2020_DGU_AgentU",
   "debugOptions": {
     "hidedInDevtools": []

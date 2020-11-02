@@ -6,12 +6,11 @@
 
 .card {
   width: 80%;  /* 가로 길이 85% */
-  min-height: 250rpx;  /* 높이 최소값 설정 */
+  min-height: 200rpx;  /* 높이 최소값 설정 */
 
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  justify-content: left;
 
   border-radius: 30rpx;
   box-shadow: 0rpx 3rpx 10rpx 3rpx gray;
@@ -20,17 +19,22 @@
   padding: 35rpx;
 }
 
-.detail__img {
-  width: 100rpx;
-  height: 100rpx;
-  margin: 10rpx;
+.pcImage {
+  width: 200rpx;
+  height: 200rpx;
+  float: left;
 }
 
-.arrowSize {
-  width: 50rpx;
-  height: 50rpx;
+.pcName {
+  font-size: 50rpx;
+  float: left;
+}
+.pcPrice {
+  position: relative;
+  font-size: 70rpx;
+  float: right;
 }
 
-.textinputSize {
-  width: 100%;
+.pcList {
+  font-size : 50rpx;
 }

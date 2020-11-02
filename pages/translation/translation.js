@@ -5,14 +5,15 @@ Page({
    * Page initial data
    */
   data: {
-
+    sendText: null,
+    resultText: 'Plz click Arrow Button' // 번역 결과가 이쪽으로 와야함
   },
 
   /**
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
-
+    // document.getElementById("transButton").onclick = putText;
   },
 
   /**
@@ -61,6 +62,16 @@ Page({
    * Called when user click on the top right corner to share
    */
   onShareAppMessage: function () {
+
+  },
+  
+  putText: function(event) {
+    this.setData({
+      sendText: event.detail.value
+    })
+  },
+
+  translateText: function(event) {
 
   }
 })
