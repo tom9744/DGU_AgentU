@@ -25,13 +25,10 @@
 }
 
 .price-wrapper {
-  margin: 20rpx 10rpx 10rpx 10rpx;
+  margin: 20rpx 10rpx 10rpx auto;
 
   display: flex;
   align-items: end;
-
-  position: relative;
-  left: 250rpx;
 
   font-size: 50rpx;
   font-weight: 500;

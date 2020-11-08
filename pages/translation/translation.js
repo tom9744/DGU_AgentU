@@ -10,7 +10,7 @@ Page({
     arrowDownUrl: 'https://www.flaticon.com/svg/static/icons/svg/248/248537.svg',
 
     sendText: "",
-    resultText: 'Plz click Arrow Button' // 번역 결과가 이쪽으로 와야함
+    resultText: 'Click the arrow above to see the result!' // 번역 결과가 이쪽으로 와야함
   },
 
   /**

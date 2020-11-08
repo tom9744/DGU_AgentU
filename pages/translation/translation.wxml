@@ -6,11 +6,13 @@
     <textarea id="transText" bindinput="putText" class="text-form" type="text" placeholder="put your article"/>
   </view>
 
-  <image bindtap="translateText" class="arrow" src="{{arrowDownUrl}}"/>
+  <view bindtap="translateText">
+    <image class="arrow" src="{{arrowDownUrl}}"/>
+  </view>
 
   <image class="detail__img" src="{{koreaUrl}}" mode="widthFix"></image>
   <view class="translator-card">
     <text class="card-title">Result</text>
-    <textarea class="text-form">{{resultText}}</textarea>
+    <textarea class="text-form" value="{{resultText}}" disabled="true"></textarea>
   </view>
 </view>

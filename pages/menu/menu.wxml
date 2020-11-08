@@ -1,23 +1,26 @@
 <!--pages/menu/menu.wxml-->
 <view class="container">
-  <view class="placeInfo" style="text-align: center;">
-    <text>{{ title }} \n</text>
-    <text>{{ location }} \n</text>
-    <text>{{ operatingTime }}</text>
+  <view class="placeInfo">
+    <view style="margin-bottom: 10px;">
+      <text style="font-weight: 600; font-size: 24px;">{{ title }}</text>
+    </view>
+  
+    <view style="display: flex; justify-content: space-around;">
+      <text>{{ location }}</text>
+      <text>{{ operatingTime }}</text>
+    </view>
   </view>
 
-  <view class="filter">
-    <view id="0" bindtap="onClick">전체보기</view>
-    <view id="1" bindtap="onClick">밀</view>
-    <view id="2" bindtap="onClick">견과류</view>
-    <view id="3" bindtap="onClick">난류</view>
-    <view id="4" bindtap="onClick">유당</view>
-  </view>
+  <scroll-view scroll-x="true" class="filter">
+    <view id="0" class="filter-tab {{filterNumber == 0 ? 'selected' : ''}}" bindtap="onClick">전체</view>
+    <view id="1" class="filter-tab {{filterNumber == 1 ? 'selected' : ''}}" bindtap="onClick">밀</view>
+    <view id="2" class="filter-tab {{filterNumber == 2 ? 'selected' : ''}}" bindtap="onClick">견과류</view>
+    <view id="3" class="filter-tab {{filterNumber == 3 ? 'selected' : ''}}" bindtap="onClick">난류</view>
+    <view id="4" class="filter-tab {{filterNumber == 4 ? 'selected' : ''}}" bindtap="onClick">유당</view>
+  </scroll-view>
 
-  <view> 현재 필터: {{filter[filterNumber]}}</view>
-  <scroll-view 
-    scroll-y class="menu" 
-  >
+
+  <scroll-view scroll-y class="menu">
     <block wx:for="{{menu}}" wx:key="item" wx:if="{{filterNumber == 0 ? true : item.allergy != filter[filterNumber]}}">
       <view class="card">
         <view>

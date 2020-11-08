@@ -2,37 +2,55 @@
 .container {
   height: 100vh;
   width: 100%;
-  padding: 40rpx;
+  padding: 20rpx;
 
   display: flex;
   flex-direction: column;
 }
 
 .placeInfo {
-  width: 90%;
-  background-color: gray;
+  text-align: center;
+  
+  width: 100%;
 }
 
 .filter {
-  height: 100rpx;
-  width: 90%;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;  
+  height: 120rpx;
+  width: 95%;
+
+  white-space: nowrap;
+
+  text-align: center;
+}
+
+.filter-tab {
+  display: inline-block;
+  margin: 35rpx 10rpx 0rpx 10rpx;
+
+  border: 1px solid black;
+  border-radius: 50rpx;
+
+  width: 20vw;
+}
+
+.selected {
+  border: 2px solid rgb(212, 116, 116);
+  color: rgb(212, 116, 116);
+  font-weight: 600;
 }
 
 .menu {
   flex-grow: 1;
-  padding: 10px;
-  width: 90%;
+  padding: 0rpx 10rpx;
+  width: 100%;
   /* background-color: lightgray; */
 
   display: flex;
-  justify-items: center;
+  justify-content: center;
 }
 
 .card {
-  width: 80%;  /* 가로 길이 85% */
+  width: 85%;  /* 가로 길이 85% */
   min-height: 100rpx;  /* 높이 최소값 설정 */
 
   display: flex;
@@ -40,7 +58,7 @@
   align-items: center;
 
   border-radius: 30rpx;
-  box-shadow: 0rpx 3rpx 10rpx 3rpx gray;
+  box-shadow: 0rpx 1rpx 5rpx 1rpx gray;
 
   margin: 20rpx auto;
   padding: 35rpx;

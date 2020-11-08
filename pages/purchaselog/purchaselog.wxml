@@ -20,6 +20,5 @@
     <block wx:for="{{item.purchaseItems}}">
       {{item}}
     </block>
-    
   </view>
 </view>

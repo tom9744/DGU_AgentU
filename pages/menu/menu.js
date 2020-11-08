@@ -39,9 +39,10 @@ Page({
 
   onClick(event) {
     console.log(event);
+    const filterId = event.target.id;
 
     this.setData({
-      filterNumber: event.target.id
+      filterNumber: filterId
     })
   }
 })

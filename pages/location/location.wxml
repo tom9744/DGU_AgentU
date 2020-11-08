@@ -39,24 +39,23 @@
       <!-- 마커가 선택된 경우, 데이터 바인딩 및 출력 -->
       <block wx:else>
         <view class="facility-info">
-          <view class="facility-detail">
-            <view style="display: flex; justify-content: space-between;">            
-              <text>위치: {{ markers[selectedMarker].data.location }} \n</text>
+          <view class="facility-location" >            
+            <text>위치: {{ markers[selectedMarker].data.location }} \n</text>
 
-              <text>운영시간: {{ markers[selectedMarker].data.operatingTime }}</text>
-            </view>
+            <text>운영시간: {{ markers[selectedMarker].data.operatingTime }}</text>
+          </view>
+
+          <view class="facility-description">
             <text>{{ markers[selectedMarker].data.description }}</text>
           </view>
-        </view>
 
-        <view style="width: 100%; display: flex; justify-content: center;">
-          <button 
-            disabled="{{ markers[selectedMarker].data.category != '식당' ? true : false }}" 
-            size="mini" 
-            bindtap="onClick"
-          >
-            <text style="font-size: 25rpx;">상세 메뉴 보기</text>
-          </button>
+          <view class="facility-button">
+            <text   
+              class="button"
+              bindtap="{{ markers[selectedMarker].data.category == '식당' ? 'onClick' : '' }}"
+              style="background-color: {{ markers[selectedMarker].data.category == '식당' ? '' : 'lightgray'}}; color: {{ markers[selectedMarker].data.category == '식당' ? '' : 'black'}};"
+            >{{ markers[selectedMarker].data.category == '식당' ? '메뉴 보기' : '사용 불가'}}</text>
+          </view>
         </view>
       </block>
     </view>

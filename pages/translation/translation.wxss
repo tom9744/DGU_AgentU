@@ -29,6 +29,7 @@
 
   width: 50rpx;
   height: 50rpx;
+  padding: 50rpx;
 }
 
 .translator-card {
