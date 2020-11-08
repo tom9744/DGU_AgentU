@@ -49,7 +49,24 @@
     </view>
 
     <view class="detail__description">
-      <text>Lorem Ipsum，也称乱数假文或者哑元文本， 是印刷及排版领域所常用的虚拟文字。由于曾经一台匿名的打印机刻意打乱了一盒印刷字体从而造出一本字体样品书，Lorem Ipsum从西元15世纪起就被作为此领域的标准文本使用。</text>
+      <text>查看校园内各种便利设施的信息。所有与地图相关的功能均通过腾讯Maps API提供。</text>
+    </view>
+  </view>
+
+  <view class="card">
+    <view class="detail__text">
+      <text>要知道你在哪里。</text>
+    </view>
+    
+    <view class="detail__img__wrapper">
+      <!-- aspectiFill -> widthFix  -->
+      <image class="detail__img" style="width: 10vw;" src="{{chinaUrl}}" mode="widthFix"></image>
+      <image class="detail__img" style="width: 5vw;" src="{{arrowUrl}}" mode="widthFix"></image>
+      <image class="detail__img" style="width: 10vw;" src="{{koreaUrl}}" mode="widthFix"></image>
+    </view>
+
+    <view class="detail__description">
+      <text>还提供了一个简单的翻译功能。在校园中需要很小的通信时可以使用它。</text>
     </view>
   </view>
 </view>

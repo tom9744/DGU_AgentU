@@ -39,15 +39,6 @@
       <!-- 마커가 선택된 경우, 데이터 바인딩 및 출력 -->
       <block wx:else>
         <view class="facility-info">
-          <!-- <view class="facility-image">
-            <image 
-              style="width: 300rpx; height: 200rpx;"
-              src="{{ markers[selectedMarker].data.imgPath }}"
-              mode="widthFix"
-            >
-            </image>
-          </view> -->
-
           <view class="facility-detail">
             <view style="display: flex; justify-content: space-between;">            
               <text>위치: {{ markers[selectedMarker].data.location }} \n</text>
@@ -64,7 +55,7 @@
             size="mini" 
             bindtap="onClick"
           >
-            <text style="font-size: 30rpx;">상세 메뉴 보기</text>
+            <text style="font-size: 25rpx;">상세 메뉴 보기</text>
           </button>
         </view>
       </block>

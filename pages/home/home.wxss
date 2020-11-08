@@ -25,7 +25,7 @@
 }
 
 .card {
-  width: 80%;  /* 가로 길이 85% */
+  width: 85%;  /* 가로 길이 85% */
   min-height: 250rpx;  /* 높이 최소값 설정 */
 
   display: flex;
@@ -34,20 +34,21 @@
   align-items: center;
 
   border-radius: 30rpx;
-  box-shadow: 0rpx 3rpx 10rpx 3rpx gray;
+  box-shadow: 0rpx 1rpx 5rpx 1rpx gray;
 
   margin: 20rpx 0rpx;
   padding: 35rpx;
 }
 
 .userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
+  width: 158rpx;
+  height: 158rpx;
   margin: 20rpx;
   border-radius: 50%;
 }
 
 .userinfo-nickname {
+  font-weight: 600;
   color: #000000;
 }
 
@@ -58,6 +59,8 @@
 
 .detail__img__wrapper {
   display: flex;
+  justify-content: space-around;
+  align-items: center;
   flex-wrap: wrap;  /* 화면 넘어가는 경우 자르지 않음 */ 
   margin: 30rpx 0rpx;
 }

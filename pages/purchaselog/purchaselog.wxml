@@ -1,21 +1,25 @@
 <!--pages/userProfile/userProfile.wxml-->
 <view class="container">
-<h1 class="header__text">Purchase Log</h1>
-</view>
+  <view class="card" wx:for="{{purchaseHistory}}">
 
-<view class="container">
-  <view class="card">
-    <view>
-      <text>결제 날짜 : {{purchaseDate}}</text>
-      <view>
-        <view class="pcPrice">
-          <text>결제액 : {{purchasePrice}}</text>
-        </view>
-      </view>
+    <view class="wrapper">
+      <image src="{{calendarUrl}}" class="icons" mode="widthFix"></image>
+      <text style="font-size: 16px; font-weight: 400;">결제일: {{item.purchaseDate}}</text>
     </view>
-      <text class="pcList">결제 목록</text>
-      <view wx:for="{{purchaseItems}}">
-        {{item}}
-      </view>
+
+    <view class="price-wrapper">
+      <image src="{{moneyUrl}}" class="icons" style="width: 8vw;" mode="widthFix"></image>
+      <text>결제액: {{item.purchasePrice}}</text>
+    </view>
+
+    <view class="wrapper">
+      <image src="{{listUrl}}" class="icons" style="width: 7vw;" mode="widthFix"></image>
+      <text style="font-size: 20px; font-weight: 400;">결제 목록</text>
+    </view>
+
+    <block wx:for="{{item.purchaseItems}}">
+      {{item}}
+    </block>
+    
   </view>
 </view>

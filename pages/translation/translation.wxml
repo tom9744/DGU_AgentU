@@ -1,20 +1,16 @@
 <!--pages/translation/translation.wxml-->
 <view class="container">
-<h1 class="header__text">Translation</h1>
-</view>
-
-<view class="container">
-  <view class="card">
-    <textarea id="transText" bindinput="putText" class="textinputSize" type="text" placeholder="put your article"/>
+  <image class="detail__img" src="{{chinaUrl}}" mode="widthFix"></image>
+  <view class="translator-card">
+    <text class="card-title">Type anything you want!</text>
+    <textarea id="transText" bindinput="putText" class="text-form" type="text" placeholder="put your article"/>
   </view>
-</view>
 
-<view class="container">
-<image bindtap="translateText" class="arrowSize" src="https://www.flaticon.com/svg/static/icons/svg/248/248537.svg"/>
-</view>
+  <image bindtap="translateText" class="arrow" src="{{arrowDownUrl}}"/>
 
-<view class="container">
-  <view class="card">
-<textarea class="textinputSize">{{resultText}}</textarea>
+  <image class="detail__img" src="{{koreaUrl}}" mode="widthFix"></image>
+  <view class="translator-card">
+    <text class="card-title">Result</text>
+    <textarea class="text-form">{{resultText}}</textarea>
   </view>
 </view>

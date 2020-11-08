@@ -38,7 +38,7 @@
   },
   "compileType": "miniprogram",
   "libVersion": "2.13.1",
-  "appid": "wxbe441a913c9f26a7",
+  "appid": "wx5be09fc9ea2bb7af",
   "projectname": "2020_DGU_AgentU",
   "debugOptions": {
     "hidedInDevtools": []
@@ -68,6 +68,18 @@
         {
           "name": "Menu",
           "pathName": "pages/menu/menu",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "Translator",
+          "pathName": "pages/translation/translation",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "PurchaseLog",
+          "pathName": "pages/purchaselog/purchaselog",
           "scene": null
         }
       ]

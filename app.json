@@ -28,8 +28,8 @@
       },
       {
         "pagePath": "pages/translation/translation",
-        "iconPath": "/resources/images/tabBar/info.png",
-        "selectedIconPath": "/resources/images/tabBar/info-color.png",
+        "iconPath": "/resources/images/tabBar/translator.png",
+        "selectedIconPath": "/resources/images/tabBar/translator-color.png",
         "text": "Translation"
       },
       {

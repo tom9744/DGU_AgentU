@@ -6,7 +6,7 @@ Page({
    */
   data: {
     filterNumber: 0,
-    filter: ["전체보기", "밀", "almond", "egg", "milk"],
+    filter: ["all", "wheat", "almond", "egg", "milk"],
 
     title: null,
     location: null,

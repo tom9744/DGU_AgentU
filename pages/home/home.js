@@ -17,6 +17,10 @@ Page({
 
     mapUrl: '/resources/images/Tmap.png',
 
+    chinaUrl: 'https://www.flaticon.com/svg/static/icons/svg/197/197375.svg',
+    koreaUrl: 'https://www.flaticon.com/svg/static/icons/svg/197/197582.svg',
+    arrowUrl: 'https://www.flaticon.com/svg/static/icons/svg/54/54366.svg',
+
     // 동적 데이터
     userInfo: {},
     hasUserInfo: false,

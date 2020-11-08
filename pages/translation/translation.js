@@ -5,7 +5,11 @@ Page({
    * Page initial data
    */
   data: {
-    sendText: null,
+    chinaUrl: 'https://www.flaticon.com/svg/static/icons/svg/197/197375.svg',
+    koreaUrl: 'https://www.flaticon.com/svg/static/icons/svg/197/197582.svg',
+    arrowDownUrl: 'https://www.flaticon.com/svg/static/icons/svg/248/248537.svg',
+
+    sendText: "",
     resultText: 'Plz click Arrow Button' // 번역 결과가 이쪽으로 와야함
   },
 
@@ -37,34 +41,6 @@ Page({
 
   },
 
-  /**
-   * Lifecycle function--Called when page unload
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * Page event handler function--Called when user drop down
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * Called when page reach bottom
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * Called when user click on the top right corner to share
-   */
-  onShareAppMessage: function () {
-
-  },
-  
   putText: function(event) {
     this.setData({
       sendText: event.detail.value
@@ -72,6 +48,17 @@ Page({
   },
 
   translateText: function(event) {
+    const inputText = this.data.sendText;
 
+    if(inputText === "") {
+      this.setData({
+        resultText: `입력된 내용이 없습니다.`
+      })
+    }
+    else {
+      this.setData({
+        resultText: `입력된 내용: ${inputText}`
+      })
+    }
   }
 })

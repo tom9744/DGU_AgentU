@@ -1,7 +1,7 @@
 /* pages/location/location.wxss */
 .container {
   height: 100vh;
-  padding: 40rpx;
+  padding: 20rpx;
 
   display: flex;
   flex-direction: column;
@@ -25,7 +25,7 @@
   align-items: center;
 
   border-radius: 30rpx;
-  box-shadow: 0rpx 5rpx 10rpx 1rpx gray;
+  box-shadow: 0rpx 1rpx 5rpx 1rpx gray;
 }
 
 .card-title {
@@ -42,31 +42,25 @@
 .card-body {
   /* background-color: hotpink; */
   width: 100%;
-  height: 80%;
-  margin: 0rpx 15rpx 15rpx 15rpx;
+  height: 75%;
+  margin: 0rpx 15rpx 20rpx 15rpx;
 
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 .facility-info {
   width: 100%;
-  height: 30vh;
+  height: 200rpx;
 
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.facility-image {
-  background-color: gray;
-  width: 50%;
-}
-
 .facility-detail {
   width: 90%;
-
   font-size: 30rpx;
 }

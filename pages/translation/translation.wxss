@@ -1,36 +1,60 @@
 /**index.wxss**/
-.header__text {
+.container {
+  height: 100vh;
+  padding: 60rpx 0rpx 20rpx 0rpx;
+  justify-content: space-around;
+} 
+
+.header-text {
   font-size: 50rpx;
   font-weight: bold;
 }
 
-.card {
-  width: 80%;  /* 가로 길이 85% */
-  min-height: 250rpx;  /* 높이 최소값 설정 */
+.detail__img {
+  /* 이미지 카드 상단에 부착 및 마진 제거 */
+  margin: -10vw;
+  padding: -10vw;
+  width: 10vw;
+
+  position: relative;
+  left: 300rpx;
+  top: 40rpx;
+  z-index: 1;
+}
+
+.arrow {
+  /* position: relative;
+  top: 50rpx;
+  z-index: 1; */
+
+  width: 50rpx;
+  height: 50rpx;
+}
+
+.translator-card {
+  width: 85%;  /* 가로 길이 85% */
+  height: 30vh;  /* 높이 최소값 설정 */
 
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 
-  border-radius: 30rpx;
-  box-shadow: 0rpx 3rpx 10rpx 3rpx gray;
+  border-radius: 15px;
+  box-shadow: 0rpx 1rpx 5rpx 1rpx gray;
 
   margin: 20rpx 0rpx;
   padding: 35rpx;
 }
 
-.detail__img {
-  width: 100rpx;
-  height: 100rpx;
-  margin: 10rpx;
+.card-title {
+  margin-bottom: 10px;
+  font-weight: 500;
 }
 
-.arrowSize {
-  width: 50rpx;
-  height: 50rpx;
-}
-
-.textinputSize {
+.text-form {
+  border-top: 0.5px solid gray;
+  padding: 20rpx 0rpx 0rpx 0rpx;
+  height: 100%;
   width: 100%;
 }
