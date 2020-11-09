@@ -2,7 +2,7 @@
 <view class="container">
   <view class="place-info">
     <view>
-      <text style="font-weight: 600; font-size: 28px;">{{ title }}</text>
+      <text style="font-weight: 600; font-size: 24px;">{{ title }}</text>
     </view>
   
     <view style="display: flex; justify-content: space-around;">
@@ -20,7 +20,7 @@
   </scroll-view>
 
   <!-- 메뉴 출력을 위한 Y축 스크롤 View -->
-  <scroll-view scroll-y="true" class="menu">
+  <scroll-view enable-flex="true" scroll-y class="menu">
     <!-- 메뉴 JSON 배열 렌더링 -->
     <block wx:for="{{menu}}" wx:key="menuId">
       <!-- WXS 태그를 사용해, 필터링 기능 구현 -->
@@ -48,39 +48,43 @@
         }
       </wxs>
       <block wx:if="{{filtering.filteredMenu(item.allergy, filter[filterNumber])}}">
-      <view class="menu-card">
-        <view class="menu-name">
-          <text>{{item.name}}</text>
-        </view>
+        <view class="menu-card">
+          <view class="menu-name">
+            <text>{{item.name}}</text>
+          </view>
 
-        <view class="menu-price">
-          <text>¥{{item.price}}</text>
-        </view>
+          <view class="menu-price">
+            <text>¥{{item.price}}</text>
+          </view>
 
-        <view class="menu-allergy">
-          <!-- 알레르기 성분이 포함된 메뉴의 경우, 해당 알레르기 유발 성분 이미지를 삽입한다. -->
-          <block wx:if="{{item.allergy.length > 0}}">
-            <block wx:for="{{item.allergy}}" wx:key="menuId">
-              <image 
-               style="margin: 10rpx; width: 45rpx; height: 45rpx;" 
-                src="../../resources/images/allergies/{{item}}.png" 
-                mode="widthFix"> 
-              </image>
+          <view class="menu-allergy">
+            <!-- 알레르기 성분이 포함된 메뉴의 경우, 해당 알레르기 유발 성분 이미지를 삽입한다. -->
+            <block wx:if="{{item.allergy.length > 0}}">
+              <block wx:for="{{item.allergy}}" wx:key="menuId">
+                <image 
+                style="margin: 10rpx; width: 45rpx; height: 45rpx;" 
+                  src="../../resources/images/allergies/{{item}}.png" 
+                  mode="widthFix"> 
+                </image>
+              </block>
             </block>
-          </block>
-          <!-- <image wx:if="{{item.allergy != ''}}" style="width: 50rpx;" src="{{item.allergyicon}}" mode="widthFix"> </image> -->
-        </view>
+          </view>
 
-        <view class="menu-button">
-          <text id="{{item.menuId}}" class="button">장바구니 담기</text>
+          <view class="menu-button">
+            <text id="{{item.menuId}}" class="button" bindtap="addToCart">장바구니 담기</text>
+          </view>
         </view>
-      </view>
       </block>
     </block>
+    <!-- 마지막 카드 짤림 현상 방지를 위해 빈 view 추가 -->
+    <view style="height: 10rpx;"></view>
   </scroll-view>
-
-  <view class="cart">
-    <text class="cart-summary">장바구니에 담은 갯수 : 3</text>
-    <text class="cart-button" bindtap="checkCart">장바구니 확인하기</text>
-  </view> 
 </view>
+
+<view class="cart">
+    <view class="cart-summary">
+      <text>{{cartItems == 0 ? '장바구니가 비었습니다.' : cartItems + '개의 항목이 있습니다.' }}</text>
+      <text>총 금액: ¥{{totalPrice}}</text>
+    </view>
+    <text class="cart-button" bindtap="checkCart">장바구니 확인하기</text>
+</view> 

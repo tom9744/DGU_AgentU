@@ -1,27 +1,28 @@
 <!--pages/Shoppingcart/Shoppingcart.wxml-->
 <view class="container">
   <view class="container-title"> 
-    Itmes in Cart
+    장바구니 목록을 확인하고 결제해주세요.
   </view>
 
   <view class="container-card">
-    <view class="item-card" wx:for="{{cartList}}">
+    <view class="item-card" wx:for="{{items}}" wx:key="menuId">
       <view class="menuText">
-        {{item.itemName}}
+        {{item.name}}
       </view>
 
       <view class="numText">
-          {{item.itemNum}} ea
+          <!-- {{item.itemNum}} ea -->
+          수량
       </view>
 
       <view class="priceText">
-        ¥ {{item.itemPrice}} 
+        ¥{{item.price}} 
       </view>
     </view>
   </view>
 
   <view class="totalPriceContainer">
-    <text class="totalPriceText">총 {{totalPrice}} $</text>
+    <text class="totalPriceText">¥{{totalPrice}} $</text>
     <text class="button">결제하기</text>
   </view>
 </view>

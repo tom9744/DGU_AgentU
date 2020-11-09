@@ -1,16 +1,16 @@
 /* pages/menu/menu.wxss */
 .container {
-  height: 100vh;
-  padding: 20rpx;
+  height: 90vh;
+  padding: 0rpx 20rpx;
 
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-evenly;
 }
 
 .place-info {
   width: 100%;  /* 가로 길이 85% */
-  height: 13vh;  /* 높이 최소값 설정 */
+  height: 12%;  /* 높이 최소값 설정 */
 
   text-align: center;
 
@@ -20,22 +20,21 @@
 }
 
 .filter {
-  height: 7vh;
+  height: 8%;
   width: 100%;
 
   white-space: nowrap;
-
-  text-align: center;
 }
 
 .filter-tab {
-  display: inline-block;
-  margin: 25rpx 10rpx 0rpx 10rpx;
+  width: 20vw;
 
+  display: inline-block;
+  margin: 10rpx 10rpx;
+  
+  text-align: center;
   border: 1px solid black;
   border-radius: 50rpx;
-
-  width: 20vw;
 }
 
 .selected {
@@ -45,12 +44,13 @@
 }
 
 .menu {
-  height: 65vh;
+  height: 80%;
+  width: 100%;
 }
 
 .menu-card {
   width: 90%;  /* 가로 길이 85% */
-  min-height: 150rpx;  /* 높이 최소값 설정 */
+  height: 125rpx;  /* 높이 최소값 설정 */
 
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -61,7 +61,7 @@
   border-radius: 30rpx;
   box-shadow: 0rpx 1rpx 5rpx 1rpx gray;
 
-  margin: 20rpx auto;
+  margin: 15rpx auto;
   padding: 10rpx 20rpx;
 }
 
@@ -115,7 +115,7 @@
   align-items: center;
 }
 
-.cart {
+/* .cart {
   height: 10vh;
   width: 100%;
 
@@ -126,15 +126,38 @@
 
   justify-content: space-around;
   align-items: center;
+} */
+
+.cart {
+  height: 10vh;
+  width: 100%;
+
+  position: fixed;
+  bottom: 0;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+
+  border-top: 1px solid lightgray;
 }
 
 .cart-summary {
+  margin: auto;
+
+  font-size: 30rpx;
   font-weight: 600;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
 .cart-button {
-  height: 50rpx;
-  width: 300rpx;
+  height: 60rpx;
+  width: 250rpx;
+
+  margin: auto auto;
 
   font-size: 30rpx;
   border-radius: 30rpx;

@@ -100,7 +100,6 @@ Page({
     const markerData = this.data.markers[markerNumber].data;
 
     console.log(markerData.title);
-    
 
     wx.navigateTo({
       // url: './detail/detail?item='+item,

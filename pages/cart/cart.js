@@ -6,45 +6,32 @@ Page({
    */
   data: {
     totalPrice: 0,
-
-    cartList: [
-      {
-        itemName: "짬뽕",
-        itemNum: 2,
-        itemPrice: 5000
-      },
-      {
-        itemName: "짜장면",
-        itemNum: 1,
-        itemPrice: 4000
-      },
-      {
-        itemName: "탕수육",
-        itemNum: 1,
-        itemPrice: 15000
-      },
-      {
-        itemName: "간짜장",
-        itemNum: 2,
-        itemPrice: 7000
-      },
-      {
-        itemName: "양장피",
-        itemNum: 1,
-        itemPrice: 25000
-      },
-      {
-        itemName: "소주",
-        itemNum: 1,
-        itemPrice: 4000
-      }
-    ]
+    items: []
   },
 
   /**
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
+    wx.getStorage({
+      key: 'Cart',
+      success: ({ data }) => {
+        let currentCart = data; // 현재 카트 상태를 저장한다.
+
+        let totalPrice = 0; 
+        // 카트에 담긴 항목들의 금액 합을 구한다.
+        for(let item of currentCart) {
+          totalPrice += parseInt(item.price);
+        }
+
+        this.setData({
+          items: currentCart,
+          totalPrice: totalPrice
+        });
+
+        console.log(currentCart);
+      }
+    });
   },
 
   /**
@@ -57,20 +44,7 @@ Page({
    * Lifecycle function--Called when page show
    */
   onShow: function () {
-    let total = 0;
 
-    // 장바구니 총액 계산
-    for (let i = 0; i < this.data.cartList.length; i++) 
-    { 
-      total += this.data.cartList[i].itemPrice * this.data.cartList[i].itemNum;
-    }
-
-    // totalPrice 데이터 변경
-    this.setData(
-      { 
-        totalPrice: total 
-      }
-    );
   },
 
   /**

@@ -8,9 +8,12 @@ Page({
     filterNumber: 0,
     filter: ["all", "gluten", "almond", "egg", "milk"],
 
-    title: null,
-    location: null,
-    operatingTime: null,
+    title: "데이터 없음",
+    location: "데이터 없음",
+    operatingTime: "데이터 없음",
+
+    cartItems: 0,
+    totalPrice: 0,
 
     menu: [
       { menuId: "0", name: "짬뽕", price: "300", allergy: ["gluten"] },
@@ -22,11 +25,7 @@ Page({
       { menuId: "6", name: "어향가지", price: "300", allergy: ["almond", "gluten"] },
       { menuId: "7", name: "팔보채", price: "250", allergy: ["almond"] },
       { menuId: "8", name: "토마토 계란 볶음", price: "150", allergy: ["egg"] },
-      { menuId: "9", name: "공기밥", price: "50", allergy: [] },
-      { menuId: "10", name: "어향가지", price: "300", allergy: ["almond", "gluten"] },
-      { menuId: "11", name: "팔보채", price: "250", allergy: ["almond"] },
-      { menuId: "12", name: "토마토 계란 볶음", price: "150", allergy: ["egg"] },
-      { menuId: "13", name: "공기밥", price: "50", allergy: [] }
+      { menuId: "9", name: "공기밥", price: "50", allergy: [] }
     ]
   },
 
@@ -41,6 +40,15 @@ Page({
       location: options.location,
       operatingTime: options.operatingTime
     })
+
+    wx.getStorage({
+      key: 'Cart',
+      success: ({ data }) => {
+        this.setData({
+          cartItems: data.length
+        });
+      }
+    });
   },
 
   onClick(event) {
@@ -49,6 +57,40 @@ Page({
 
     this.setData({
       filterNumber: filterId
+    })
+  },
+
+  addToCart(event) {
+    const targetItem = this.data.menu[event.target.id];
+
+    wx.getStorage({
+      key: 'Cart',
+      success: ({ data }) => {
+        let currentCart = data;       // 현재 카트 상태를 저장한다.
+        currentCart.push(targetItem); // 현재 카트 상태에 선택된 항목을 추가한다.
+
+        let totalPrice = 0; 
+        // 카트에 담긴 항목들의 금액 합을 구한다.
+        for(let item of currentCart) {
+          totalPrice += parseInt(item.price);
+        }
+
+        wx.setStorage({
+          data: currentCart,
+          key: 'Cart',
+        });
+
+        this.setData({
+          cartItems: currentCart.length,
+          totalPrice: totalPrice
+        });
+      }
+    });
+  },
+
+  checkCart() {
+    wx.switchTab({
+      url: '/pages/cart/cart',
     })
   }
 })

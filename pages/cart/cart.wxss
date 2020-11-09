@@ -5,11 +5,11 @@
 
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-evenly;
 }
 
 .container-title {
-  margin-bottom: 10px;
+  margin-bottom: 10rpx;
   font-weight: 500;
   color: grey;
 }
@@ -40,39 +40,36 @@
 
 .item-card {
   width: 90%;  /* 가로 길이 85% */
-  height: 10vh;  /* 높이 최소값 설정 */
+  height: 5vh;  /* 높이 최소값 설정 */
 
-  display: flex;
-  justify-content: flex-start;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
   align-items: center;
 
   border-radius: 15px;
   box-shadow: 0rpx 1rpx 5rpx 1rpx gray;
 
-  margin-bottom: 10px;
-  padding: 35rpx;
+  margin-bottom: 20rpx;
+  padding: 20rpx;
 }
 
 .menuText {
-  width: 30%;
-  font-size: 20px;
+  text-align: start;
+  font-size: 35rpx;
   color: rgb(75, 73, 73);
 }
 
 .numText {
-  width: 20%;
-  text-align: end;
   font-size: 15px;
 }
 
 .priceText {
-  width: 40%;
-  color: firebrick;
   font-size: 20px;
+  color: firebrick;
 }
 
 .totalPriceContainer {
-  width: 85%;
+  width: 90%;
   height: 5vh;
 
   display: flex;
@@ -84,7 +81,7 @@
   box-shadow: 0rpx 1rpx 5rpx 1rpx gray;
 
   margin: 20rpx 0rpx;
-  padding: 35rpx;
+  padding: 20rpx;
 }
 
 .totalPriceText {
@@ -92,7 +89,7 @@
 }
 
 .button {
-  height: 80rpx;
+  height: 60rpx;
   width: 200rpx;
 
   font-size: 30rpx;
