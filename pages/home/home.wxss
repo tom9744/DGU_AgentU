@@ -1,7 +1,7 @@
 /**index.wxss**/
-.container {
+/* .container {
   height: 100%;
-}
+} */
 
 .header {
   display: flex;
@@ -75,10 +75,10 @@
   margin: 10rpx;
 }
 
-.tapBarStyle {
+/* .tapBarStyle {
   position:fixed;
   bottom:0;
   width:100%;
   left:0;
   right:0
-}
+} */

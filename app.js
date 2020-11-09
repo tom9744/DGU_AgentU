@@ -39,6 +39,11 @@ App({
         }
       }
     })
+    // Cart Storage를 초기화한다.
+    wx.setStorage({
+      key: "Cart",
+      data: []
+    })
   },
   // 프로젝트 전역 변수 설정
   globalData: {

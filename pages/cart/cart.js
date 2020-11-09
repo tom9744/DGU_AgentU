@@ -6,6 +6,7 @@ Page({
    */
   data: {
     totalPrice: 0,
+
     cartList: [
       {
         itemName: "짬뽕",
@@ -56,11 +57,20 @@ Page({
    * Lifecycle function--Called when page show
    */
   onShow: function () {
-    var total = 0;
-    for (var i = 0; i < this.data.cartList.length; i++) { // 장바구니 총액
+    let total = 0;
+
+    // 장바구니 총액 계산
+    for (let i = 0; i < this.data.cartList.length; i++) 
+    { 
       total += this.data.cartList[i].itemPrice * this.data.cartList[i].itemNum;
-      this.setData({totalPrice: total});
     }
+
+    // totalPrice 데이터 변경
+    this.setData(
+      { 
+        totalPrice: total 
+      }
+    );
   },
 
   /**
@@ -77,24 +87,4 @@ Page({
 
   },
 
-  /**
-   * Page event handler function--Called when user drop down
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * Called when page reach bottom
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * Called when user click on the top right corner to share
-   */
-  onShareAppMessage: function () {
-
-  }
 })

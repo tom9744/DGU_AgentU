@@ -5,7 +5,7 @@
     "pages/menu/menu",
     "pages/translation/translation",
     "pages/purchaselog/purchaselog",
-    "pages/Shoppingcart/Shoppingcart"
+    "pages/cart/cart"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -36,7 +36,7 @@
         "text": "Translation"
       },
       {
-        "pagePath": "pages/Shoppingcart/Shoppingcart",
+        "pagePath": "pages/cart/cart",
         "iconPath": "/resources/images/tabBar/shopping-cart.png",
         "selectedIconPath": "/resources/images/tabBar/shopping-cart-color.png",
         "text": "Cart"

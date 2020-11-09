@@ -1,19 +1,25 @@
 <!--pages/Shoppingcart/Shoppingcart.wxml-->
 <view class="container">
-  <view class="container-title"> Itmes in Cart</view>
+  <view class="container-title"> 
+    Itmes in Cart
+  </view>
+
   <view class="container-card">
     <view class="item-card" wx:for="{{cartList}}">
       <view class="menuText">
         {{item.itemName}}
       </view>
+
       <view class="numText">
           {{item.itemNum}} ea
       </view>
+
       <view class="priceText">
-        {{item.itemPrice}} $
+        ¥ {{item.itemPrice}} 
       </view>
     </view>
   </view>
+
   <view class="totalPriceContainer">
     <text class="totalPriceText">총 {{totalPrice}} $</text>
     <text class="button">결제하기</text>

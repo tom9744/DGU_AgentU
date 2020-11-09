@@ -1,8 +1,17 @@
 .container {
+  height: 100vh;
+
   padding: 10rpx 0rpx 20rpx 0rpx;
-  justify-content: center;
+
   display: flex;
   flex-direction: column;
+  justify-content: center;
+}
+
+.container-title {
+  margin-bottom: 10px;
+  font-weight: 500;
+  color: grey;
 }
 
 .container-card {
@@ -23,11 +32,6 @@
   padding: 35rpx;
 }
 
-.container-title {
-  margin-bottom: 10px;
-  font-weight: 500;
-  color: grey;
-}
 .border {
   border-top: 0.5px solid grey;
   width: 100%;

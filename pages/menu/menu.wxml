@@ -1,8 +1,8 @@
 <!--pages/menu/menu.wxml-->
 <view class="container">
-  <view class="placeInfo">
-    <view style="margin-bottom: 10px;">
-      <text style="font-weight: 600; font-size: 24px;">{{ title }}</text>
+  <view class="place-info">
+    <view>
+      <text style="font-weight: 600; font-size: 28px;">{{ title }}</text>
     </view>
   
     <view style="display: flex; justify-content: space-around;">
@@ -19,18 +19,68 @@
     <view id="4" class="filter-tab {{filterNumber == 4 ? 'selected' : ''}}" bindtap="onClick">유당</view>
   </scroll-view>
 
-
-  <scroll-view scroll-y class="menu">
-    <block wx:for="{{menu}}" wx:key="item" wx:if="{{filterNumber == 0 ? true : item.allergy != filter[filterNumber]}}">
-      <view class="card">
-        <view>
-          {{item.name}}
-          {{item.price}}
+  <!-- 메뉴 출력을 위한 Y축 스크롤 View -->
+  <scroll-view scroll-y="true" class="menu">
+    <!-- 메뉴 JSON 배열 렌더링 -->
+    <block wx:for="{{menu}}" wx:key="menuId">
+      <!-- WXS 태그를 사용해, 필터링 기능 구현 -->
+      <wxs module="filtering">
+        var filteredMenu = function(allergies, filter) {
+          // 전체 필터인 경우, true를 반환한다.
+          if(filter === "all") {
+            return true;
+          }
+          // 그 외의 필터인 경우,
+          else {
+            // 알레르기 유발 성분을 조회한다.
+            for (var i = 0; i < allergies.length; i++) {
+              // 필터와 일치하는 항목이 존재하면 false를 반환한다.
+              if(allergies[i] == filter)
+                return false
+            }
+            // 필터와 알치하는 항목이 존재하지 않으면 true를 반환한다.
+            return true
+          }
+        }
+        // 모듈을 export 한다.
+        module.exports = {
+          filteredMenu: filteredMenu
+        }
+      </wxs>
+      <block wx:if="{{filtering.filteredMenu(item.allergy, filter[filterNumber])}}">
+      <view class="menu-card">
+        <view class="menu-name">
+          <text>{{item.name}}</text>
         </view>
-        <view>
-          <image wx:if="{{item.allergy != ''}}" style="width: 50rpx;" src="{{item.allergyicon}}" mode="widthFix"> </image>
+
+        <view class="menu-price">
+          <text>¥{{item.price}}</text>
+        </view>
+
+        <view class="menu-allergy">
+          <!-- 알레르기 성분이 포함된 메뉴의 경우, 해당 알레르기 유발 성분 이미지를 삽입한다. -->
+          <block wx:if="{{item.allergy.length > 0}}">
+            <block wx:for="{{item.allergy}}" wx:key="menuId">
+              <image 
+               style="margin: 10rpx; width: 45rpx; height: 45rpx;" 
+                src="../../resources/images/allergies/{{item}}.png" 
+                mode="widthFix"> 
+              </image>
+            </block>
+          </block>
+          <!-- <image wx:if="{{item.allergy != ''}}" style="width: 50rpx;" src="{{item.allergyicon}}" mode="widthFix"> </image> -->
+        </view>
+
+        <view class="menu-button">
+          <text id="{{item.menuId}}" class="button">장바구니 담기</text>
         </view>
       </view>
+      </block>
     </block>
   </scroll-view>
+
+  <view class="cart">
+    <text class="cart-summary">장바구니에 담은 갯수 : 3</text>
+    <text class="cart-button" bindtap="checkCart">장바구니 확인하기</text>
+  </view> 
 </view>

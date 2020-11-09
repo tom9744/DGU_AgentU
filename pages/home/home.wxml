@@ -70,6 +70,6 @@
     </view>
   </view>
 </view>
-<view class="container">
+<!-- <view class="container">
   <mp-tabbar class="tapBarStyle" list="{{list}}" bindchange="tabChange"></mp-tabbar>
-</view>
+</view> -->

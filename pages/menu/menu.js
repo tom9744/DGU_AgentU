@@ -6,21 +6,27 @@ Page({
    */
   data: {
     filterNumber: 0,
-    filter: ["all", "wheat", "almond", "egg", "milk"],
+    filter: ["all", "gluten", "almond", "egg", "milk"],
 
     title: null,
     location: null,
     operatingTime: null,
 
     menu: [
-      { name: "짬뽕", price: "Y300", allergy: "almond", allergyicon: "../../resources/images/allergies/almond.png" },
-      { name: "짜장면", price: "Y250", allergy: "egg", allergyicon: "../../resources/images/allergies/egg.png" },
-      { name: "짬뽕", price: "Y300", allergy: "egg", allergyicon: "../../resources/images/allergies/egg.png" },
-      { name: "짜장면", price: "Y250", allergy: "", allergyicon: "" },
-      { name: "짬뽕", price: "Y300", allergy: "milk", allergyicon: "../../resources/images/allergies/milk.png" },
-      { name: "짜장면", price: "Y250", allergy: "almond", allergyicon: "../../resources/images/allergies/almond.png" },
-      { name: "짬뽕", price: "Y300", allergy: "", allergyicon: "" },
-      { name: "짜장면", price: "Y250", allergy: "", allergyicon: "" }
+      { menuId: "0", name: "짬뽕", price: "300", allergy: ["gluten"] },
+      { menuId: "1", name: "짜장면", price: "250", allergy: ["gluten"] },
+      { menuId: "2", name: "계란 볶음밥", price: "250", allergy: ["egg",] },
+      { menuId: "3", name: "멘보샤", price: "250", allergy: ["milk", "egg"] },
+      { menuId: "4", name: "청경채 볶음", price: "200", allergy: [] },
+      { menuId: "5", name: "경장육슬", price: "350", allergy: [] },
+      { menuId: "6", name: "어향가지", price: "300", allergy: ["almond", "gluten"] },
+      { menuId: "7", name: "팔보채", price: "250", allergy: ["almond"] },
+      { menuId: "8", name: "토마토 계란 볶음", price: "150", allergy: ["egg"] },
+      { menuId: "9", name: "공기밥", price: "50", allergy: [] },
+      { menuId: "10", name: "어향가지", price: "300", allergy: ["almond", "gluten"] },
+      { menuId: "11", name: "팔보채", price: "250", allergy: ["almond"] },
+      { menuId: "12", name: "토마토 계란 볶음", price: "150", allergy: ["egg"] },
+      { menuId: "13", name: "공기밥", price: "50", allergy: [] }
     ]
   },
 
