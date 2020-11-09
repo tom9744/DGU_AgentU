@@ -1,17 +1,20 @@
 {
-  "pages":[
+  "pages": [
     "pages/home/home",
     "pages/location/location",
     "pages/menu/menu",
     "pages/translation/translation",
-    "pages/purchaselog/purchaselog"
+    "pages/purchaselog/purchaselog",
+    "pages/Shoppingcart/Shoppingcart"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "AgentU",
-    "navigationBarTextStyle":"black"
+    "navigationBarTextStyle": "black"
   },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
   "tabBar": {
     "list": [
       {
@@ -33,6 +36,12 @@
         "text": "Translation"
       },
       {
+        "pagePath": "pages/Shoppingcart/Shoppingcart",
+        "iconPath": "/resources/images/tabBar/shopping-cart.png",
+        "selectedIconPath": "/resources/images/tabBar/shopping-cart-color.png",
+        "text": "Cart"
+      },
+      {
         "pagePath": "pages/purchaselog/purchaselog",
         "iconPath": "/resources/images/tabBar/purchase-log.png",
         "selectedIconPath": "/resources/images/tabBar/purchase-log-color.png",
@@ -40,6 +49,6 @@
       }
     ]
   },
-  "style": "v2",
-  "sitemapLocation": "sitemap.json"
+
+  "navigationBarTitleText": "UI组件库"
 }

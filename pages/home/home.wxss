@@ -1,4 +1,10 @@
 /**index.wxss**/
+@import '/miniprogram_npm/weui-miniprogram/weui-wxss/dist/style/weui.wxss';
+
+.container {
+  height: 100%;
+}
+
 .header {
   display: flex;
   justify-content: center;
@@ -69,4 +75,12 @@
   width: 100rpx;
   height: 100rpx;
   margin: 10rpx;
+}
+
+.tapBarStyle {
+  position:fixed;
+  bottom:0;
+  width:100%;
+  left:0;
+  right:0
 }

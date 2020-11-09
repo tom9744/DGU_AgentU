@@ -1,0 +1,103 @@
+.container {
+  padding: 10rpx 0rpx 20rpx 0rpx;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.container-card {
+  width: 85%;
+  height: 70vh;
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  text-align: center;
+  align-items: center;
+  overflow: auto;
+
+  border-radius: 15px;
+  box-shadow: 0rpx 1rpx 5rpx 1rpx gray;
+
+  margin: auto;
+  padding: 35rpx;
+}
+
+.container-title {
+  margin-bottom: 10px;
+  font-weight: 500;
+  color: grey;
+}
+.border {
+  border-top: 0.5px solid grey;
+  width: 100%;
+  height: 100%;
+}
+
+.item-card {
+  width: 90%;  /* 가로 길이 85% */
+  height: 10vh;  /* 높이 최소값 설정 */
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  border-radius: 15px;
+  box-shadow: 0rpx 1rpx 5rpx 1rpx gray;
+
+  margin-bottom: 10px;
+  padding: 35rpx;
+}
+
+.menuText {
+  width: 30%;
+  font-size: 20px;
+  color: rgb(75, 73, 73);
+}
+
+.numText {
+  width: 20%;
+  text-align: end;
+  font-size: 15px;
+}
+
+.priceText {
+  width: 40%;
+  color: firebrick;
+  font-size: 20px;
+}
+
+.totalPriceContainer {
+  width: 85%;
+  height: 5vh;
+
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+
+  border-radius: 15px;
+  box-shadow: 0rpx 1rpx 5rpx 1rpx gray;
+
+  margin: 20rpx 0rpx;
+  padding: 35rpx;
+}
+
+.totalPriceText {
+  width: 50%;
+}
+
+.button {
+  height: 80rpx;
+  width: 200rpx;
+
+  font-size: 30rpx;
+  border-radius: 30rpx;
+
+  color: white;
+  background-color: rgb(255, 142, 142);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

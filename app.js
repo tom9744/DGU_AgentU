@@ -1,5 +1,10 @@
 //app.js
 App({
+  data: {
+  },
+  tabChange(e) {
+      console.log('tab change', e)
+  },
   onLaunch: function () {
     // WeChat 유저 정보를 가져오는 API 호출
     wx.login({
