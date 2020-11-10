@@ -43,7 +43,7 @@
   height: 5vh;  /* 높이 최소값 설정 */
 
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
   align-items: center;
 
   border-radius: 15px;
@@ -101,4 +101,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.cancelIcon {
+  width: 50rpx;
+  height: 50rpx;
 }

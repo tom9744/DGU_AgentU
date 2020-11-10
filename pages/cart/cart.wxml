@@ -18,6 +18,10 @@
       <view class="priceText">
         ¥{{item.price}} 
       </view>
+
+      <view> <!--삭제 아이콘-->
+        <image id="{{item.menuId}}" class="cancelIcon" src="../../resources/images/cancel.png" bindtap="delFromCart"/>
+      </view>
     </view>
   </view>
 
