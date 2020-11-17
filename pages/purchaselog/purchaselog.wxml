@@ -18,7 +18,10 @@
     </view>
 
     <block wx:for="{{item.purchaseItems}}">
-      {{item}}
+      <view class="ticket">
+        {{item.name}}
+        <view class="button" bindtap="useTicket">식권 사용하기</view>
+      </view>
     </block>
   </view>
 </view>

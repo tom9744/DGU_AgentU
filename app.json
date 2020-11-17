@@ -5,7 +5,8 @@
     "pages/menu/menu",
     "pages/translation/translation",
     "pages/purchaselog/purchaselog",
-    "pages/cart/cart"
+    "pages/cart/cart",
+    "pages/purchasecomplete/purchasecomplete"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -49,6 +50,5 @@
       }
     ]
   },
-
   "navigationBarTitleText": "UI组件库"
 }

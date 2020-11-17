@@ -27,6 +27,6 @@
 
   <view class="totalPriceContainer">
     <text class="totalPriceText">¥{{totalPrice}} $</text>
-    <text class="button">결제하기</text>
+    <text class="button" bindtap="goToPurchase">결제하기</text>
   </view>
 </view>

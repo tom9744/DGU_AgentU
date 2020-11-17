@@ -12,23 +12,25 @@ Page({
     purchaseHistory: [
       {
         purchaseDate: "2020-11-11 13:22",
-        purchaseItems: ["짬뽕", "탕수육"],
+        purchaseItems: [
+          {
+            name: "짬뽕",
+            isUsedTicket: false,
+          }, 
+          {
+            name: "탕수육",
+            isUsedTicket: false,
+          }],
         purchasePrice: "Y250"
       },
       {
-        purchaseDate: "2020-11-01 17:12",
-        purchaseItems: ["전가복"],
-        purchasePrice: "Y350"
-      },
-      {
-        purchaseDate: "2020-10-24 14:52",
-        purchaseItems: ["지삼선", "팔보채", "경장육슬"],
-        purchasePrice: "Y725"
-      },
-      {
-        purchaseDate: "2020-10-15 18:52",
-        purchaseItems: ["마라샹궈", "꿔바로우"],
-        purchasePrice: "Y475"
+        purchaseDate: "2020-11-10 11:22",
+        purchaseItems: [
+          {
+            name: "짜장면",
+            isUsedTicket: false,
+          }],
+        purchasePrice: "Y50"
       }
     ],
   },
@@ -87,5 +89,20 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+  useTicket(event) {
+    wx.showModal({
+      title: '식당 아주머니께 보여드리세요!',
+      content: '식당 아주머니만 확인 버튼을 눌러주세요!',
+
+      succes (res) {
+        if (res.confirm) {
+          this.setData()
+        } else if (res.cancel) {
+
+        }
+      }
+    })
   }
 })

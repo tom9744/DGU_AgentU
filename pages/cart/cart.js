@@ -103,4 +103,9 @@ Page({
       url: '/pages/cart/cart',
     })
   },
+  goToPurchase() {
+    wx.navigateTo({
+      url: '/pages/purchasecomplete/purchasecomplete',
+    })
+  }
 })
