@@ -52,8 +52,7 @@
           <view class="menu-button">
             <text id="{{item.facilityId}}" class="button" 
             bindtap="{{ item.type_name == '식당' ? 'gotoMenu' : ''}}"
-            style="background-color : {{ item.type_name == '식당' ? '' : 'lightgrey'}};">
-            {{ item.type_name == '식당' ? '메뉴 보기' : '사용 불가'}}</text>
+            style="background-color : {{ item.type_name == '식당' ? '' : 'lightgrey'}};">{{item.type_name == '식당' ? '메뉴 보기' : '사용 불가'}}</text>
           </view>
         </view>
       </block>

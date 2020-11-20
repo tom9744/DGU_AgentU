@@ -16,12 +16,11 @@
 
 .ticket {
   width: 90%;  /* 가로 길이 85% */
-  min-height: 100rpx;  /* 높이 최소값 설정 */
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
+  
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
 
   border-radius: 30rpx;
   box-shadow: 0rpx 1rpx 5rpx 1rpx gray;
@@ -29,13 +28,16 @@
   margin: 20rpx 0rpx;
   padding: 35rpx;
 }
-
+.itemname {
+  grid-row : 1 / 2;
+}
 .button {
   height: 60rpx;
-  width: 100%;
-
+  width: 200rpx;
   font-size: 30rpx;
   border-radius: 30rpx;
+  grid-column: 3 / 4;
+  grid-row: 1 / 2;
 
   color: white;
   background-color: rgb(255, 142, 142);

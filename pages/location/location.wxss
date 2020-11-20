@@ -10,7 +10,7 @@
 
 .place-info {
   width: 100%;  /* 가로 길이 85% */
-  height: 12%;  /* 높이 최소값 설정 */
+  height: 5%;  /* 높이 최소값 설정 */
 
   text-align: center;
 

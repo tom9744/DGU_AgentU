@@ -92,17 +92,26 @@ Page({
   },
 
   useTicket(event) {
-    wx.showModal({
-      title: '식당 아주머니께 보여드리세요!',
-      content: '식당 아주머니만 확인 버튼을 눌러주세요!',
-
-      succes (res) {
-        if (res.confirm) {
-          this.setData()
-        } else if (res.cancel) {
-
+    const hid = event.target.dataset.hid;
+    const iid = event.target.dataset.iid;
+    if (this.data.purchaseHistory[hid].purchaseItems[iid].isUsedTicket == false) {
+      wx.showModal({
+        title: '식당 아주머니께 보여드리세요!',
+        content: '식당 아주머니만 확인 버튼을 눌러주세요!',
+        cancelText: '취소',
+        confirmText: '확인',
+        success: (res) => {
+          if (res.confirm) {
+            const temp = this.data.purchaseHistory;
+            temp[hid].purchaseItems[iid].isUsedTicket = true;
+            this.setData({ purchaseHistory: temp});
+          } else if (res.cancel) {
+            const temp = this.data.purchaseHistory;
+            temp[hid].purchaseItems[iid].isUsedTicket = false;
+            this.setData({ purchaseHistory: temp});
+          }
         }
-      }
-    })
+      });
+    }
   }
 })
