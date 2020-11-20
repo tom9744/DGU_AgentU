@@ -5,15 +5,15 @@
   </view>
 
   <view class="container-card">
-    <view class="item-card" wx:for="{{items}}" wx:key="menuId">
+    <view class="item-card" wx:for="{{items}}" wx:for-index="idx" wx:key="menuId">
       <view class="menuText">
         {{item.name}}
       </view>
 
       <view class="numText">
-        <image class="arrowIcon" bindtap="numUp" src="../../resources/images/up.png" />
+        <image class="arrowIcon" id="{{idx}}" bindtap="numUp" src="../../resources/images/up.png" />
          {{item.quantity}} ea
-        <image class="arrowIcon" bindtap="numDown" src="../../resources/images/down.png" />
+        <image class="arrowIcon" id="{{idx}}" bindtap="numDown" src="../../resources/images/down.png" />
           <!-- {{item.quantity}} ea -->
           
       </view>

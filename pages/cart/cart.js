@@ -34,15 +34,13 @@ Page({
         let totalPrice = 0; 
         // 카트에 담긴 항목들의 금액 합을 구한다.
         for(let item of currentCart) {
-          totalPrice += parseInt(item.price);
+          totalPrice += parseInt(item.price * item.quantity);
         }
 
         this.setData({
           items: currentCart,
           totalPrice: totalPrice
         });
-
-        console.log(currentCart);
       }
     });
   },
@@ -106,10 +104,50 @@ Page({
       url: '/pages/purchasecomplete/purchasecomplete',
     })
   },
-  numUp() {
-    
+
+  numUp({target}) {
+    const itemIndex = target.id;
+    let items = this.data.items;
+    let totalPrice = 0;
+
+    items[itemIndex].quantity = items[itemIndex].quantity + 1;
+
+    for(let item of items) {
+      totalPrice += parseInt(item.price * item.quantity);
+    }
+
+    wx.setStorage({ // 다시 저장
+      data: items,
+      key: 'Cart',
+    });
+
+    this.setData({
+      items: items,
+      totalPrice: totalPrice
+    });
   },
-  numDown() {
-    
+  numDown({target}) {
+    const itemIndex = target.id;
+    let items = this.data.items;
+    let totalPrice = 0;
+
+    if ( items[itemIndex].quantity <= 1) {
+      return;
+    }
+    items[itemIndex].quantity = items[itemIndex].quantity - 1;
+  
+    for(let item of items) {
+      totalPrice += parseInt(item.price * item.quantity);
+    }
+
+    wx.setStorage({ // 다시 저장
+      data: this.data.items,
+      key: 'Cart',
+    });
+
+    this.setData({
+      items: items,
+      totalPrice: totalPrice
+    });
   }
 })
