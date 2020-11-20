@@ -1,91 +1,169 @@
-/* pages/location/location.wxss */
+/* pages/menu/menu.wxss */
 .container {
-  height: 100vh;
-  padding: 20rpx;
+  height: 90vh;
+  padding: 0rpx 20rpx;
 
   display: flex;
   flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.place-info {
+  width: 100%;  /* 가로 길이 85% */
+  height: 12%;  /* 높이 최소값 설정 */
+
+  text-align: center;
+
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  align-items: center;
+}
+
+.filter {
+  height: 8%;
+  width: 100%;
+
+  white-space: nowrap;
+}
+
+.filter-tab {
+  width: 20vw;
+
+  display: inline-block;
+  margin: 10rpx 10rpx;
   
-  align-items: center;
-  justify-content: space-between;
+  text-align: center;
+  border: 1px solid black;
+  border-radius: 50rpx;
 }
 
-.map {
-  height: 60%;
-  width: 100%;
-  margin-bottom: 20rpx;
+.selected {
+  border: 2px solid rgb(255, 142, 142);
+  color: rgb(255, 142, 142);
+  font-weight: 600;
 }
 
-.card {
-  height: 40%;
+.menu {
+  height: 80%;
   width: 100%;
+}
 
-  display: flex;
-  flex-direction: column;
+.menu-card {
+  width: 90%;  /* 가로 길이 85% */
+  height: 125rpx;  /* 높이 최소값 설정 */
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+
   align-items: center;
-  justify-content: space-between;
 
   border-radius: 30rpx;
   box-shadow: 0rpx 1rpx 5rpx 1rpx gray;
+
+  margin: 15rpx auto;
+  padding: 10rpx 20rpx;
 }
 
-.card-title {
-  /* background-color: grey; */
-  width: 90vw;
-  height: 10%;
-  margin: 30rpx 0rpx 0rpx 0rpx;
+.menu-name {
+  grid-row: 1 / 2;
+  grid-column: 1 / 2;
+
+  font-size: 40rpx;
+  font-weight: 500;
+
+  margin-left: 30rpx;
+}
+
+.menu-price {
+  grid-row: 2 / 3;
+  grid-column: 1 / 2;
+
+  font-size: 35rpx;
+  font-weight: 350;
+
+  margin-left: 30rpx;
+}
+
+.menu-allergy {
+  grid-row: 1 / 2;
+  grid-column: 2 / 3;
 
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: row-reverse;
 }
 
-.card-body {
-  /* background-color: hotpink; */
-  width: 90vw;
-  height: 75%;
-  margin: 0rpx 0rpx 30rpx 0rpx;
+.menu-button {
+  grid-row: 2 / 3;
+  grid-column: 2 / 3;
 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
-}
-
-.facility-info {
-  width: 90%;
-  height: 90%;
-
-  font-size: 30rpx;
-
-  display: grid;
-  grid-template-rows: 1fr 2fr 1fr;
-}
-
-.facility-location {
-  display: flex; 
-  justify-content: space-around;
-}
-
-.facility-description {
-  margin: 10rpx 0rpx;
-}
-
-.facility-button {
-  display: flex; 
-  align-items: center;
-  justify-content: center;
+  margin-left: auto;
 }
 
 .button {
+  height: 50rpx;
+  width: 180rpx;
+
+  font-size: 25rpx;
+  border-radius: 30rpx;
+
+  color: white;
+  background-color: rgb(255, 142, 142);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* .cart {
+  height: 10vh;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  text-align: center;
+
+  justify-content: space-around;
+  align-items: center;
+} */
+
+.cart {
+  height: 10vh;
+  width: 100%;
+
+  position: fixed;
+  bottom: 0;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+
+  border-top: 1px solid lightgray;
+}
+
+.cart-summary {
+  margin: auto;
+
+  font-size: 30rpx;
+  font-weight: 600;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.cart-button {
   height: 60rpx;
-  width: 200rpx;
+  width: 250rpx;
+
+  margin: auto auto;
 
   font-size: 30rpx;
   border-radius: 30rpx;
 
   color: white;
-  background-color: rgb(255, 142, 142);
+  background-color: rgb(64, 167, 43);
 
   display: flex;
   justify-content: center;
