@@ -21,6 +21,8 @@ App({
           // 사용자가 userInfo API 사용을 허가한 경우, 별도 팝업없이 사용자 정보 가져오기.
           wx.getUserInfo({
             success: res => {
+              console.log(res);
+              
               // res 객체를 백엔드로 넘겨, unionID 등을 받아올 수 있다.
               this.globalData.userInfo = res.userInfo
 

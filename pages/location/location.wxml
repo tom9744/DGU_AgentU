@@ -5,7 +5,7 @@
   <map 
     class="map" 
     scale="17"
-    min-scale="16"
+    min-scale="1"
     max-scale="18"
     markers="{{markers}}"
     show-compass="true"
@@ -52,7 +52,7 @@
           <view class="facility-button">
             <text   
               class="button"
-              bindtap="{{ markers[selectedMarker].data.category == '식당' ? 'onClick' : '' }}"
+              bindtap="{{ markers[selectedMarker].data.category == '식당' ? 'seeDetails' : '' }}"
               style="background-color: {{ markers[selectedMarker].data.category == '식당' ? '' : 'lightgray'}}; color: {{ markers[selectedMarker].data.category == '식당' ? '' : 'black'}};"
             >{{ markers[selectedMarker].data.category == '식당' ? '메뉴 보기' : '사용 불가'}}</text>
           </view>
