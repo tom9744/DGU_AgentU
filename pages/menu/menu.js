@@ -8,6 +8,7 @@ Page({
     filterNumber: 0,
     filter: ["all", "gluten", "almond", "egg", "milk"],
 
+    id: "",
     title: "데이터 없음",
     location: "데이터 없음",
     operatingTime: "데이터 없음",
@@ -36,6 +37,7 @@ Page({
     console.log("options : ", options);
 
     this.setData({
+      id: options.id,
       title: options.title,
       location: options.location,
       operatingTime: options.operatingTime
