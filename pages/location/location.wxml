@@ -3,6 +3,7 @@
   <view class="place-info">
     <view>
       <text style="font-weight: 600; font-size: 24px;">편의시설 찾기</text>
+
     </view>
   </view>
 
