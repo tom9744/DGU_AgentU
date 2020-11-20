@@ -5,14 +5,17 @@
   </view>
 
   <view class="container-card">
-    <view class="item-card" wx:for="{{items}}" wx:key="menuId">
+    <view class="item-card" wx:for="{{items}}" wx:for-index="idx" wx:key="menuId">
       <view class="menuText">
         {{item.name}}
       </view>
 
       <view class="numText">
-          <!-- {{item.itemNum}} ea -->
-          수량
+        <image class="arrowIcon" id="{{idx}}" bindtap="numUp" src="../../resources/images/up.png" />
+         {{item.quantity}} ea
+        <image class="arrowIcon" id="{{idx}}" bindtap="numDown" src="../../resources/images/down.png" />
+          <!-- {{item.quantity}} ea -->
+          
       </view>
 
       <view class="priceText">

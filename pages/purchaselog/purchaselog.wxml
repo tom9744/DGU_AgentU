@@ -1,6 +1,6 @@
 <!--pages/userProfile/userProfile.wxml-->
 <view class="container">
-  <view class="card" wx:for="{{purchaseHistory}}">
+  <view class="card" wx:for="{{purchaseHistory}}" wx:for-index="idxone">
 
     <view class="wrapper">
       <image src="{{calendarUrl}}" class="icons" mode="widthFix"></image>
@@ -17,10 +17,10 @@
       <text style="font-size: 20px; font-weight: 400;">결제 목록</text>
     </view>
 
-    <block wx:for="{{item.purchaseItems}}">
+    <block wx:for="{{item.purchaseItems}}" wx:for-index="idxtwo">
       <view class="ticket">
-        {{item.name}}
-        <view class="button" bindtap="useTicket">식권 사용하기</view>
+        <text class="itemname">{{item.name}}</text>
+        <view class="button" data-hid="{{idxone}}" data-iid="{{idxtwo}}" bindtap="useTicket" style="background-color : {{ item.isUsedTicket == false ? '' : 'lightgrey'}}">식권 사용하기</view>
       </view>
     </block>
   </view>

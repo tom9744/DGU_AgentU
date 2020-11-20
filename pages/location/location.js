@@ -53,7 +53,6 @@ Page({
 
     facility: [],
   },
-
   onLoad() {
     console.log("The Page has been successfully loaded!");
     
