@@ -3,7 +3,6 @@
   <view class="place-info">
     <view>
       <text style="font-weight: 600; font-size: 24px;">편의시설 찾기</text>
-
     </view>
   </view>
 
@@ -14,10 +13,12 @@
     <view id="3" class="filter-tab {{filterNumber == 3 ? 'selected' : ''}}" bindtap="onClick">ATM</view>
     <view id="4" class="filter-tab {{filterNumber == 4 ? 'selected' : ''}}" bindtap="onClick">은행</view>
     <view id="5" class="filter-tab {{filterNumber == 5 ? 'selected' : ''}}" bindtap="onClick">편의점</view>
+    <view id="6" class="filter-tab {{filterNumber == 6 ? 'selected' : ''}}" bindtap="onClick">우체국</view>
+    <view id="7" class="filter-tab {{filterNumber == 7 ? 'selected' : ''}}" bindtap="onClick">카페</view>
   </scroll-view>
 
   <!-- 메뉴 출력을 위한 Y축 스크롤 View -->
-  <scroll-view enable-flex="true" scroll-y class="menu">
+  <scroll-view enable-flex="true" scroll-y class="facility">
     <!-- 메뉴 JSON 배열 렌더링 -->
     <block wx:for="{{facility}}" wx:key="facilityId">
       <!-- WXS 태그를 사용해, 필터링 기능 구현 -->
@@ -40,21 +41,37 @@
           filteredMenu: filteredFacility
         }
       </wxs>
-      <block wx:if="{{filtering.filteredMenu(item.type_name, filter[filterNumber])}}">
-        <view class="menu-card">
-          <view class="menu-name">
+      <block wx:if="{{filtering.filteredMenu(item.category, filter[filterNumber])}}">
+        <view class="facility-card">
+          <view class="facility-name">
             <text>{{item.name}}</text>
           </view>
 
-          <view class="menu-price">
-            <text>위치 : {{item.location}}</text>
+          <view class="facility-location">
+            <text>{{item.location}}</text>
           </view>
 
-          <view class="menu-button">
-            <text id="{{item.facilityId}}" class="button" 
-            bindtap="{{ item.type_name == '식당' ? 'gotoMenu' : ''}}"
-            style="background-color : {{ item.type_name == '식당' ? '' : 'lightgrey'}};">
-            {{ item.type_name == '식당' ? '메뉴 보기' : '사용 불가'}}</text>
+          <view class="facility-time">
+            {{item.operatingTime}}
+          </view>
+
+          <view class="facility-button">
+            <text
+              wx:if="{{item.category == '식당'}}"
+              id="{{item.id}}" 
+              class="button"
+              bindtap="{{item.isOperating ? 'gotoMenu' : ''}}"
+              style="background-color : {{item.isOperating ? '' : 'lightgrey'}};"
+            >{{ item.isOperating ? '메뉴 보기' : '운영 종료'}}
+            </text>
+
+            <text
+              wx:else
+              id="{{item.id}}" 
+              class="button"
+              style="background-color : {{ item.isOperating ? 'rgb(70, 139, 85)' : 'lightgrey' }};"
+            >{{ item.isOperating ? '운영중' : '운영 종료'}}
+            </text>
           </view>
         </view>
       </block>
