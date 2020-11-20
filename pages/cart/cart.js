@@ -13,6 +13,19 @@ Page({
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
+
+  },
+
+  /**
+   * Lifecycle function--Called when page is initially rendered
+   */
+  onReady: function () {
+  },
+
+  /**
+   * Lifecycle function--Called when page show
+   */
+  onShow: function () {
     wx.getStorage({
       key: 'Cart',
       success: ({ data }) => {
@@ -35,19 +48,6 @@ Page({
   },
 
   /**
-   * Lifecycle function--Called when page is initially rendered
-   */
-  onReady: function () {
-  },
-
-  /**
-   * Lifecycle function--Called when page show
-   */
-  onShow: function () {
-
-  },
-
-  /**
    * Lifecycle function--Called when page hide
    */
   onHide: function () {
@@ -61,10 +61,10 @@ Page({
 
   },
 
-  delFromCart (event) {
+  delFromCart ({target}) {
     let delItem;
     for (let index of this.data.items) { // 삭제할 항목을 탐색
-      if (index.menuId == event.target.id) {
+      if (index.menuId == target.id) {
         delItem = index;
       }
     }
@@ -93,15 +93,13 @@ Page({
         });
 
         this.setData({
+          items: currentCart,
           totalPrice: totalPrice
         });
 
         console.log(currentCart);
       }
     });
-    wx.reLaunch({ // 페이지 새로고침
-      url: '/pages/cart/cart',
-    })
   },
   goToPurchase() {
     wx.navigateTo({

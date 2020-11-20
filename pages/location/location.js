@@ -53,6 +53,7 @@ Page({
 
     facility: [],
   },
+  
   onLoad() {
     console.log("The Page has been successfully loaded!");
     
@@ -128,14 +129,13 @@ Page({
       }
     })
   },
-  onClick(event) {
-    console.log(event.target.id);
-    const filterId = event.target.id;
 
+  onFilterChange({ target }) {
     this.setData({
-      filterNumber: filterId
+      filterNumber: target.id
     })
   },
+
   gotoMenu(event) {
     const facilityId = event.target.id; 
     const facilityData = this.data.facility[facilityId - 1];

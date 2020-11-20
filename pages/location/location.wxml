@@ -7,14 +7,14 @@
   </view>
 
   <scroll-view scroll-x="true" class="filter">
-    <view id="0" class="filter-tab {{filterNumber == 0 ? 'selected' : ''}}" bindtap="onClick">전체</view>
-    <view id="1" class="filter-tab {{filterNumber == 1 ? 'selected' : ''}}" bindtap="onClick">식당</view>
-    <view id="2" class="filter-tab {{filterNumber == 2 ? 'selected' : ''}}" bindtap="onClick">보건소</view>
-    <view id="3" class="filter-tab {{filterNumber == 3 ? 'selected' : ''}}" bindtap="onClick">ATM</view>
-    <view id="4" class="filter-tab {{filterNumber == 4 ? 'selected' : ''}}" bindtap="onClick">은행</view>
-    <view id="5" class="filter-tab {{filterNumber == 5 ? 'selected' : ''}}" bindtap="onClick">편의점</view>
-    <view id="6" class="filter-tab {{filterNumber == 6 ? 'selected' : ''}}" bindtap="onClick">우체국</view>
-    <view id="7" class="filter-tab {{filterNumber == 7 ? 'selected' : ''}}" bindtap="onClick">카페</view>
+    <view id="0" class="filter-tab {{filterNumber == 0 ? 'selected' : ''}}" bindtap="onFilterChange">전체</view>
+    <view id="1" class="filter-tab {{filterNumber == 1 ? 'selected' : ''}}" bindtap="onFilterChange">식당</view>
+    <view id="2" class="filter-tab {{filterNumber == 2 ? 'selected' : ''}}" bindtap="onFilterChange">보건소</view>
+    <view id="3" class="filter-tab {{filterNumber == 3 ? 'selected' : ''}}" bindtap="onFilterChange">ATM</view>
+    <view id="4" class="filter-tab {{filterNumber == 4 ? 'selected' : ''}}" bindtap="onFilterChange">은행</view>
+    <view id="5" class="filter-tab {{filterNumber == 5 ? 'selected' : ''}}" bindtap="onFilterChange">편의점</view>
+    <view id="6" class="filter-tab {{filterNumber == 6 ? 'selected' : ''}}" bindtap="onFilterChange">우체국</view>
+    <view id="7" class="filter-tab {{filterNumber == 7 ? 'selected' : ''}}" bindtap="onFilterChange">카페</view>
   </scroll-view>
 
   <!-- 메뉴 출력을 위한 Y축 스크롤 View -->
