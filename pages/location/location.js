@@ -53,7 +53,7 @@ Page({
 
     facility: [],
   },
-  
+
   onLoad() {
     console.log("The Page has been successfully loaded!");
     
@@ -102,7 +102,6 @@ Page({
             // Add a new array element to the JSON Object Array.
             facilities.push(facility);
           }
-          console.log(facilities);
 
           this.setData({
             facility: facilities
@@ -141,6 +140,7 @@ Page({
     const facilityData = this.data.facility[facilityId - 1];
 
     wx.navigateTo({
+      // Send Essential Facility Data to the next page. 
       url: '../../pages/menu/menu?id=' + facilityId + '&title=' + facilityData.name + '&location=' + facilityData.location + '&operatingTime=' + facilityData.operatingTime
     })
   },

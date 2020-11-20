@@ -19,26 +19,10 @@ Page({
     cartItems: 0,
     totalPrice: 0,
 
-    menu: [
-      // { menuId: "0", name: "짬뽕", price: "300", allergy: ["gluten"] },
-      // { menuId: "1", name: "짜장면", price: "250", allergy: ["gluten"] },
-      // { menuId: "2", name: "계란 볶음밥", price: "250", allergy: ["egg",] },
-      // { menuId: "3", name: "멘보샤", price: "250", allergy: ["milk", "egg"] },
-      // { menuId: "4", name: "청경채 볶음", price: "200", allergy: [] },
-      // { menuId: "5", name: "경장육슬", price: "350", allergy: [] },
-      // { menuId: "6", name: "어향가지", price: "300", allergy: ["almond", "gluten"] },
-      // { menuId: "7", name: "팔보채", price: "250", allergy: ["almond"] },
-      // { menuId: "8", name: "토마토 계란 볶음", price: "150", allergy: ["egg"] },
-      // { menuId: "9", name: "공기밥", price: "50", allergy: [] }
-    ]
+    menu: []
   },
 
-  /**
-   * Lifecycle function--Called when page load
-   */
-  onLoad: function (options) {
-    console.log("options : ", options);
-
+ onLoad: function (options) {
     // Save some data which has been passed down from a previous page.
     this.setData({
       id: options.id,
@@ -51,11 +35,11 @@ Page({
     wx.getStorage({
       key: 'Cart',
       success: ({ data }) => {
-
         let totalPrice = 0; 
-        // 카트에 담긴 항목들의 금액 합을 구한다.
+
+        // Calculate the total amount of money.
         for(let item of data) {
-          totalPrice += parseInt(item.price);
+          totalPrice += parseInt(item.price * item.quantity);
         }
 
         this.setData({
@@ -110,14 +94,10 @@ Page({
                 food.allergies.push(this.data.filter[code]);
               }
             }
-
             // Add a new array element to the JSON Object Array.
             foods.push(food);
-
             id += 1;
           }
-          console.log(foods);
-
           this.setData({
             menu: foods
           })
@@ -144,37 +124,54 @@ Page({
     })
   },
 
-  onClick(event) {
-    console.log(event);
-    const filterId = event.target.id;
-
+  onFilterChange({ target }) {
     this.setData({
-      filterNumber: filterId
+      filterNumber: target.id
     })
   },
 
-  addToCart(event) {
-    console.log(event.target.id);
-    
-    const targetItem = this.data.menu[event.target.id];
+  addToCart({ target }) {
+    const targetItem = this.data.menu[target.id];
 
     wx.getStorage({
       key: 'Cart',
       success: ({ data }) => {
         let currentCart = data;       // 현재 카트 상태를 저장한다.
-        currentCart.push(targetItem); // 현재 카트 상태에 선택된 항목을 추가한다.
-
+        let isAlreadyExist = false;
         let totalPrice = 0; 
-        // 카트에 담긴 항목들의 금액 합을 구한다.
-        for(let item of currentCart) {
-          totalPrice += parseInt(item.price);
+        let index = 0;
+
+        // Check if the selected item is already in a shopping cart.
+        for (let item of currentCart) {
+          if (item.name === targetItem.name) {
+            isAlreadyExist = true;
+            break;   
+          }
+          index++;
         }
 
+        // If the selected item exists, just increase the quantity.
+        if (isAlreadyExist) {
+          currentCart[index].quantity++;
+        }
+        // If the selected item is new, 
+        else {
+          targetItem.quantity = 1;
+          currentCart.push(targetItem); // Add a new item to the cart.
+        }
+
+        // Calculate the total amount of money.
+        for(let item of currentCart) {
+          totalPrice += parseInt(item.price * item.quantity);
+        }
+
+        // Save the cart status to Storage.
         wx.setStorage({
           data: currentCart,
           key: 'Cart',
         });
 
+        // Save the cart status to Page.
         this.setData({
           cartItems: currentCart.length,
           totalPrice: totalPrice
