@@ -13,10 +13,14 @@
 
   <scroll-view scroll-x="true" class="filter">
     <view id="0" class="filter-tab {{filterNumber == 0 ? 'selected' : ''}}" bindtap="onClick">전체</view>
-    <view id="1" class="filter-tab {{filterNumber == 1 ? 'selected' : ''}}" bindtap="onClick">밀</view>
-    <view id="2" class="filter-tab {{filterNumber == 2 ? 'selected' : ''}}" bindtap="onClick">견과류</view>
-    <view id="3" class="filter-tab {{filterNumber == 3 ? 'selected' : ''}}" bindtap="onClick">난류</view>
-    <view id="4" class="filter-tab {{filterNumber == 4 ? 'selected' : ''}}" bindtap="onClick">유당</view>
+    <view id="1" class="filter-tab {{filterNumber == 1 ? 'selected' : ''}}" bindtap="onClick">글루텐</view>
+    <view id="2" class="filter-tab {{filterNumber == 2 ? 'selected' : ''}}" bindtap="onClick">조개류</view>
+    <view id="3" class="filter-tab {{filterNumber == 3 ? 'selected' : ''}}" bindtap="onClick">어류</view>
+    <view id="4" class="filter-tab {{filterNumber == 4 ? 'selected' : ''}}" bindtap="onClick">난류</view>
+    <view id="5" class="filter-tab {{filterNumber == 5 ? 'selected' : ''}}" bindtap="onClick">땅콩</view>
+    <view id="6" class="filter-tab {{filterNumber == 6 ? 'selected' : ''}}" bindtap="onClick">대두</view>
+    <view id="7" class="filter-tab {{filterNumber == 7 ? 'selected' : ''}}" bindtap="onClick">유제품</view>
+    <view id="8" class="filter-tab {{filterNumber == 8 ? 'selected' : ''}}" bindtap="onClick">견과류</view>
   </scroll-view>
 
   <!-- 메뉴 출력을 위한 Y축 스크롤 View -->
@@ -47,7 +51,7 @@
           filteredMenu: filteredMenu
         }
       </wxs>
-      <block wx:if="{{filtering.filteredMenu(item.allergy, filter[filterNumber])}}">
+      <block wx:if="{{filtering.filteredMenu(item.allergies, filter[filterNumber])}}">
         <view class="menu-card">
           <view class="menu-name">
             <text>{{item.name}}</text>
@@ -59,8 +63,8 @@
 
           <view class="menu-allergy">
             <!-- 알레르기 성분이 포함된 메뉴의 경우, 해당 알레르기 유발 성분 이미지를 삽입한다. -->
-            <block wx:if="{{item.allergy.length > 0}}">
-              <block wx:for="{{item.allergy}}" wx:key="menuId">
+            <block wx:if="{{item.allergies.length > 0}}">
+              <block wx:for="{{item.allergies}}" wx:key="menuId">
                 <image 
                 style="margin: 10rpx; width: 45rpx; height: 45rpx;" 
                   src="../../resources/images/allergies/{{item}}.png" 
