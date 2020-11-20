@@ -105,5 +105,11 @@ Page({
     wx.navigateTo({
       url: '/pages/purchasecomplete/purchasecomplete',
     })
+  },
+  numUp() {
+    
+  },
+  numDown() {
+    
   }
 })

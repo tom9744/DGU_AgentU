@@ -11,8 +11,11 @@
       </view>
 
       <view class="numText">
-          <!-- {{item.itemNum}} ea -->
-          수량
+        <image class="arrowIcon" bindtap="numUp" src="../../resources/images/up.png" />
+         {{item.quantity}} ea
+        <image class="arrowIcon" bindtap="numDown" src="../../resources/images/down.png" />
+          <!-- {{item.quantity}} ea -->
+          
       </view>
 
       <view class="priceText">

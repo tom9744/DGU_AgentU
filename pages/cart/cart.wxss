@@ -40,10 +40,10 @@
 
 .item-card {
   width: 90%;  /* 가로 길이 85% */
-  height: 5vh;  /* 높이 최소값 설정 */
-
+  height: 10%;
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
   align-items: center;
 
   border-radius: 15px;
@@ -54,16 +54,22 @@
 }
 
 .menuText {
+  grid-row: 1 / 2;
+  grid-column: 1 / 4;
   text-align: start;
   font-size: 35rpx;
   color: rgb(75, 73, 73);
 }
 
 .numText {
+  grid-row: 2 / 3;
+  grid-column: 2 / 3;
   font-size: 15px;
 }
 
 .priceText {
+  grid-row: 2 / 3;
+  grid-column: 1 / 2;
   font-size: 20px;
   color: firebrick;
 }
@@ -104,6 +110,13 @@
 }
 
 .cancelIcon {
+  grid-row: 1 / 2;
+  grid-column: 1 / 4;
   width: 50rpx;
   height: 50rpx;
+}
+
+.arrowIcon {
+  width: 30rpx;
+  height: 30rpx;
 }
