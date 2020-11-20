@@ -18,11 +18,15 @@
       <view class="priceText">
         ¥{{item.price}} 
       </view>
+
+      <view> <!--삭제 아이콘-->
+        <image id="{{item.menuId}}" class="cancelIcon" src="../../resources/images/cancel.png" bindtap="delFromCart"/>
+      </view>
     </view>
   </view>
 
   <view class="totalPriceContainer">
     <text class="totalPriceText">¥{{totalPrice}} $</text>
-    <text class="button">결제하기</text>
+    <text class="button" bindtap="goToPurchase">결제하기</text>
   </view>
 </view>
