@@ -80,6 +80,12 @@
         {
           "name": "PurchaseLog",
           "pathName": "pages/purchaselog/purchaselog",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/payment/payment",
+          "pathName": "pages/payment/payment",
           "scene": null
         }
       ]

@@ -6,7 +6,7 @@
     "pages/translation/translation",
     "pages/purchaselog/purchaselog",
     "pages/cart/cart",
-    "pages/purchasecomplete/purchasecomplete"
+    "pages/payment/payment"
   ],
   "window": {
     "backgroundTextStyle": "light",
