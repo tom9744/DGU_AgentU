@@ -3,6 +3,7 @@
     "pages/home/home",
     "pages/location/location",
     "pages/menu/menu",
+    "pages/floor3/floor3",
     "pages/translation/translation",
     "pages/purchaselog/purchaselog",
     "pages/cart/cart",
@@ -11,7 +12,7 @@
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "AgentU",
+    "navigationBarTitleText": "代理人 U",
     "navigationBarTextStyle": "black"
   },
   "style": "v2",

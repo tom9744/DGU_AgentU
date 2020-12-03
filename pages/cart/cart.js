@@ -21,7 +21,7 @@ Page({
         let totalPrice = 0; 
         // 카트에 담긴 항목들의 금액 합을 구한다.
         for(let item of currentCart) {
-          totalPrice += parseInt(item.price);
+          totalPrice += parseInt(item.price * item.quantity);
         }
 
         // Data Model 값 갱신
@@ -114,9 +114,10 @@ Page({
                   console.log("Assumes that the payment was successful...");
                   
                   setTimeout(()=>{
+                    // 1초간 대기 후, 결제 여부 페이지로 이동
                     wx.navigateTo({
                       url: '/pages/payment/payment?isSuccessful=' + isSuccessful
-                    }, 2000)
+                    }, 1000)
                   })
                 }
               })
@@ -130,6 +131,55 @@ Page({
       fail(error) {
         console.log("Login Failed!")
       }
-     })
+    });
+  },
+
+  numUp({target}) {
+    console.log(target);
+    
+    const itemIndex = target.id;
+    let items = this.data.items;
+    let totalPrice = 0;
+
+    items[itemIndex].quantity = items[itemIndex].quantity + 1;
+
+    for(let item of items) {
+      totalPrice += parseInt(item.price * item.quantity);
+    }
+
+    wx.setStorage({ // 다시 저장
+      data: items,
+      key: 'Cart',
+    });
+
+    this.setData({
+      items: items,
+      totalPrice: totalPrice
+    });
+  },
+
+  numDown({target}) {
+    const itemIndex = target.id;
+    let items = this.data.items;
+    let totalPrice = 0;
+
+    if ( items[itemIndex].quantity <= 1) {
+      return;
+    }
+    items[itemIndex].quantity = items[itemIndex].quantity - 1;
+  
+    for(let item of items) {
+      totalPrice += parseInt(item.price * item.quantity);
+    }
+
+    wx.setStorage({ // 다시 저장
+      data: this.data.items,
+      key: 'Cart',
+    });
+
+    this.setData({
+      items: items,
+      totalPrice: totalPrice
+    });
   }
 })

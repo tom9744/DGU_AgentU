@@ -53,7 +53,6 @@ Page({
 
     facility: [],
   },
-
   onLoad() {
     console.log("The Page has been successfully loaded!");
     
@@ -94,7 +93,7 @@ Page({
             facility.name = item.facility_name;
             facility.location = item.facility_location;
             facility.category = this.data.facilityChinese[typeIndex - 1];
-            facility.operatingTime = item.facility_operation != null ? item.facility_operation : "운영중단";
+            facility.operatingTime = item.facility_operation != null ? item.facility_operation : "关掉";
             facility.iconPath = `/resources/images/markers/${this.data.facilityEnglish[typeIndex - 1]}.svg`;
             // facility.isOperating = checkOperation(item.facility_operation);
             facility.isOperating = true;
@@ -139,9 +138,17 @@ Page({
     const facilityId = event.target.id; 
     const facilityData = this.data.facility[facilityId - 1];
 
-    wx.navigateTo({
-      // Send Essential Facility Data to the next page. 
-      url: '../../pages/menu/menu?id=' + facilityId + '&title=' + facilityData.name + '&location=' + facilityData.location + '&operatingTime=' + facilityData.operatingTime
-    })
+    if (facilityData.name === "교직원식당") {
+      wx.navigateTo({
+        // Send Essential Facility Data to the next page. 
+        url: '../../pages/floor3/floor3?id=' + facilityId + '&title=' + facilityData.name + '&location=' + facilityData.location + '&operatingTime=' + facilityData.operatingTime
+      })
+    }
+    else {
+      wx.navigateTo({
+        // Send Essential Facility Data to the next page. 
+        url: '../../pages/menu/menu?id=' + facilityId + '&title=' + facilityData.name + '&location=' + facilityData.location + '&operatingTime=' + facilityData.operatingTime
+      })
+    }
   },
 })

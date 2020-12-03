@@ -50,11 +50,10 @@
 
 .menu-card {
   width: 90%;  /* 가로 길이 85% */
-  height: 125rpx;  /* 높이 최소값 설정 */
 
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: 1fr 6fr 1fr;
 
   align-items: center;
 
@@ -75,8 +74,22 @@
   margin-left: 30rpx;
 }
 
-.menu-price {
+.menu-detail {
   grid-row: 2 / 3;
+  grid-column: 1 / 4;
+
+  margin-left: 30rpx;
+}
+
+.details {
+  display: block;
+  margin: 10rpx;
+
+  font-weight: 300;
+}
+
+.menu-price {
+  grid-row: 3 / 4;
   grid-column: 1 / 2;
 
   font-size: 35rpx;
@@ -86,7 +99,7 @@
 }
 
 .menu-allergy {
-  grid-row: 2 / 3;
+  grid-row: 3 / 4;
   grid-column: 2 / 3;
 
   display: flex;
@@ -94,7 +107,7 @@
 }
 
 .menu-button {
-  grid-row: 2 / 3;
+  grid-row: 3 / 4;
   grid-column: 3 / 4;
 
   margin-left: auto;
