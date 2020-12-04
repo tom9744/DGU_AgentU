@@ -28,7 +28,7 @@
         "pagePath": "pages/location/location",
         "iconPath": "/resources/images/tabBar/placeholder.png",
         "selectedIconPath": "/resources/images/tabBar/placeholder-color.png",
-        "text": "Location"
+        "text": "Places"
       },
       {
         "pagePath": "pages/translation/translation",

@@ -5,7 +5,7 @@ Page({
    * Page initial data
    */
   data: {
-    issucces: true
+    issucces: false
   },
 
   /**
