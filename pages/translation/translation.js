@@ -1,6 +1,8 @@
 // pages/translation/translation.js
-var voiceData;
+var voiceData = null;
+const innerAudioContext = wx.createInnerAudioContext()
 var recorderManager = wx.getRecorderManager();
+const fileManager = wx.getFileSystemManager();
 
 Page({
   /** 
@@ -72,37 +74,88 @@ Page({
       sampleRate: 44100,
       numberOfChannels: 1,
       encodeBitRate: 192000,
-      format: 'aac',
-      frameSize: 50
+      format: 'mp3',
     }
+
     recorderManager.onStart(() => {
       console.log('recorder start')
     })
-    recorderManager.onStop(() =>{
-      console.log('recorder stop')
-    })
+
     console.log('녹화시작')
     voiceData = recorderManager.start(options)
+
   },
 
   voiceEnd : function(event){
-
     console.log('녹화끝')
+
     recorderManager.stop()
-    /*
-    wx.request({
-      method: 'POST',
-      url : 'https://team1.miniform.kr:3020/voice',
-      data:{
-        voice : voiceData
-      },
-      success: (response) =>{
-        this.setData({
-          resultText : Response.text
-        })
-      }
-     
+
+    recorderManager.onStop((res)=>{ 
+      console.log(res.tempFilePath);
+
+      innerAudioContext.src = res.tempFilePath
+      innerAudioContext.obeyMuteSwitch = false
+      
+      wx.uploadFile({
+        filePath: res.tempFilePath,
+        name: 'image',
+        url: 'https://team1.miniform.kr:3020/voice',
+        formData: {
+          'lang': 'Kor'
+        },
+        success: (res) => {
+          console.log(res);
+        },
+        fail: (err) => {
+          console.log(err);
+        }
+      })
+
+      // fileManager.readFile({
+      //   filePath: res.tempFilePath,
+      //   encoding: 'binary',
+      //   success: (({data})=>{
+          // console.log(data);
+          // console.log(typeof data);
+          // wx.request({
+          //   method: 'POST',
+          //   url : 'https://team1.miniform.kr:3020/voice',
+          //   header: {
+          //     'content-type': 'application/octet-stream' // Default value
+          //   },
+          //   data:{
+          //     voice : data,
+          //     lang: "Kor"
+          //   },
+          //   success: (response) =>{
+          //     console.log(response);
+          //     // this.setData({
+          //     //   resultText : Response.text
+          //     // })
+          //   },
+          //   fail: (error) => {
+          //     console.log(error);
+          //   }
+          // })
+        // })
+      // })
     })
-     */
+  },
+
+  onPlay() {
+    innerAudioContext.play()
+
+    innerAudioContext.onPlay(() => {
+      console.log('开始播放')
+    })
+    innerAudioContext.onError((res) => {
+      console.log(res.errMsg)
+      console.log(res.errCode)
+    })
+
+    setTimeout(()=>{
+      innerAudioContext.stop()
+    },5000)
   }
 })
