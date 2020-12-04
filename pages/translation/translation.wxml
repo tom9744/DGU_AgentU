@@ -4,10 +4,11 @@
   <view class="translator-card">
     <text class="card-title">请写下你想说的!</text>
     <textarea id="transText" bindinput="putText" class="text-form" type="text" placeholder="内容"/>
-  </view>
-  <view class="toolView">
-    <image class="toolIcon" src="{{microPhoneUrl}}" bind:touchstart="voiceStart" bind:touchend="offtouch"/>
+    
+    <view class="toolView">
+    <image class="toolIcon" src="{{microPhoneUrl}}" bind:touchstart="voiceStart" bind:touchend="voiceEnd"/>
     <image class="toolIcon" src="{{megaPhoneUrl}}" bind:touchstart="voiceEnd" bind:touchend="offtouch"/>
+  </view>
   </view>
 
   <view bindtap="translateText">
