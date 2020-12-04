@@ -1,12 +1,16 @@
 // pages/translation/translation.js
-var voiceData;
+var voiceData = null;
+const innerAudioContext = wx.createInnerAudioContext()
 var recorderManager = wx.getRecorderManager();
-let filemanager= wx.getFileSystemManager();
+const fileManager = wx.getFileSystemManager();
+
 Page({
   /** 
    * Page initial data
    */
   data: {
+    cnToKo : true,
+
     chinaUrl: 'https://www.flaticon.com/svg/static/icons/svg/197/197375.svg',
     koreaUrl: 'https://www.flaticon.com/svg/static/icons/svg/197/197582.svg',
     arrowDownUrl: 'https://www.flaticon.com/svg/static/icons/svg/248/248537.svg',
@@ -52,26 +56,63 @@ Page({
 
   translateText: function(event) {
     const inputText = this.data.sendText;
-
+    console.log('inputtext : ' + inputText);
+    
+    let translatedText;
     if(inputText === "") {
       this.setData({
         resultText: `입력된 내용이 없습니다.`
-      })
+      });
     }
     else {
-      this.setData({
-        resultText: `입력된 내용: ${inputText}`
-      })
+      wx.request({
+        url: 'https://team1.miniform.kr:3020/text',
+        data: {
+          's' : 'ko',
+          't' : 'zh-CN',
+          'q' : inputText
+        },
+        success: (res) => {
+          translatedText = res.data;
+          console.log(translatedText);
+          this.setData({
+            resultText : translatedText
+          });
+        },
+      });
     }
   },
 
-  voiceStart : function(event){  
-
-      console.log("실행중")
+  translateTexttwo: function(event) {
+    const inputText = this.data.sendText;
+    console.log('inputtext : ' + inputText);
+    
+    let translatedText;
+    if(inputText === "") {
+      this.setData({
+        resultText: `입력된 내용이 없습니다.`
+      });
+    }
+    else {
+      wx.request({
+        url: 'https://team1.miniform.kr:3020/text',
+        data: {
+          's' : 'zh-CN',
+          't' : 'ko',
+          'q' : inputText
+        },
+        success: (res) => {
+          translatedText = res.data;
+          console.log(translatedText);
+          this.setData({
+            resultText : translatedText
+          });
+        },
+      });
+    }
   },
 
-  voiceEnd : function(event){
-
-    console.log('실행종료')
+  changeTranslate : function(event) {
+    this.setData({cnToKo : !this.data.cnToKo})
   }
 })
