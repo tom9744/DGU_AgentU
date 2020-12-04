@@ -1,0 +1,54 @@
+<!--pages/menu/menu.wxml-->
+<view class="container">
+  <view class="place-info">
+    <view>
+      <text style="font-weight: 600; font-size: 24px;">{{ title }}</text>
+    </view>
+  
+    <view style="display: flex; justify-content: space-around;">
+      <text>{{ location }}</text>
+      <text>{{ operatingTime }}</text>
+    </view>
+  </view>
+
+  <view class="menu">
+    <view class="menu-card">
+      <view class="menu-name">
+        <text>今天的菜单</text>
+      </view>
+
+      <view class="menu-detail">
+        <text class="details" wx:for="{{menu}}" wx:key="item">{{item}}</text>
+      </view>
+
+      <view class="menu-price">
+        <text>¥36</text>
+      </view>
+
+      <view class="menu-allergy">
+        <!-- 알레르기 성분이 포함된 메뉴의 경우, 해당 알레르기 유발 성분 이미지를 삽입한다. -->
+        <block wx:if="{{containedAllergies.length > 0}}">
+          <block wx:for="{{containedAllergies}}" wx:key="item">
+            <image 
+            style="margin: 10rpx; width: 45rpx; height: 45rpx;" 
+              src="../../resources/images/allergies/{{item}}.png" 
+              mode="widthFix"> 
+            </image>
+          </block>
+        </block>
+      </view>
+
+      <view class="menu-button">
+        <text class="button" bindtap="addToCart">添加到购物车</text>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="cart">
+    <view class="cart-summary">
+      <text class="cart-text">{{cartItems == 0 ? '你的购物车是空的。' : '有' + cartItems + '个项目。' }}</text>
+      <text class="cart-text">总价 ¥{{totalPrice}}</text>
+    </view>
+    <text class="cart-button" bindtap="checkCart">查看购物车</text>
+</view> 

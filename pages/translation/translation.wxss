@@ -32,6 +32,18 @@
   padding: 50rpx;
 }
 
+.toolView {
+  width: 90%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.toolIcon {
+  margin-left: 2vh;
+  width: 70rpx;
+  height: 70rpx;
+}
+
 .translator-card {
   width: 85%;  /* 가로 길이 85% */
   height: 30vh;  /* 높이 최소값 설정 */

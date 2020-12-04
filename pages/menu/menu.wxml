@@ -75,7 +75,7 @@
           </view>
 
           <view class="menu-button">
-            <text id="{{item.menuId}}" class="button" bindtap="addToCart">장바구니 담기</text>
+            <text id="{{item.menuId}}" class="button" bindtap="addToCart">添加到购物车</text>
           </view>
         </view>
       </block>
@@ -87,8 +87,8 @@
 
 <view class="cart">
     <view class="cart-summary">
-      <text>{{cartItems == 0 ? '장바구니가 비었습니다.' : cartItems + '개의 항목이 있습니다.' }}</text>
-      <text>총 금액: ¥{{totalPrice}}</text>
+      <text class="cart-text">{{cartItems == 0 ? '你的购物车是空的。' : '有' + cartItems + '个项目。' }}</text>
+      <text class="cart-text">总价 ¥{{totalPrice}}</text>
     </view>
-    <text class="cart-button" bindtap="checkCart">장바구니 확인하기</text>
+    <text class="cart-button" bindtap="checkCart">查看购物车</text>
 </view> 

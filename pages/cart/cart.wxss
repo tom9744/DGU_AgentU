@@ -8,19 +8,13 @@
   justify-content: space-evenly;
 }
 
-.container-title {
-  margin-bottom: 10rpx;
-  font-weight: 500;
-  color: grey;
-}
-
-.container-card {
-  width: 85%;
-  height: 70vh;
+.card-list {
+  width: 90%;
+  height: 85vh;
   
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  /* justify-content: flex-start; */
   text-align: center;
   align-items: center;
   overflow: auto;
@@ -28,59 +22,87 @@
   border-radius: 15px;
   box-shadow: 0rpx 1rpx 5rpx 1rpx gray;
 
-  margin: auto;
-  padding: 35rpx;
-}
-
-.border {
-  border-top: 0.5px solid grey;
-  width: 100%;
-  height: 100%;
-}
-
-.item-card {
-  width: 90%;  /* 가로 길이 85% */
-  height: 10%;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
-  align-items: center;
-
-  border-radius: 15px;
-  box-shadow: 0rpx 1rpx 5rpx 1rpx gray;
-
-  margin-bottom: 20rpx;
+  margin: 10rpx 0;
   padding: 20rpx;
 }
 
-.menuText {
+.card {
+  width: 90%;
+  height: 10vh;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+
+  align-items: center;
+
+  box-shadow: 0rpx 1rpx 5rpx 1rpx gray;
+
+  border-radius: 15px;
+  margin: 10rpx 5rpx;
+  padding: 20rpx;
+}
+
+.card__title {
   grid-row: 1 / 2;
   grid-column: 1 / 4;
+
+  margin: 0 0 15rpx 10rpx;
+
+  display: flex;
+  align-items: center;
   text-align: start;
-  font-size: 35rpx;
+
+  font-size: 45rpx;
+  font-weight: 500;
   color: rgb(75, 73, 73);
 }
 
-.numText {
-  grid-row: 2 / 3;
-  grid-column: 2 / 3;
-  font-size: 15px;
-}
-
-.priceText {
+.item-price {
   grid-row: 2 / 3;
   grid-column: 1 / 2;
-  font-size: 20px;
-  color: firebrick;
+
+  text-align: start;
+  margin-left: 10rpx;
+
+  font-size: 40rpx;
+  color: rgb(75, 73, 73);
 }
 
-.totalPriceContainer {
-  width: 90%;
-  height: 5vh;
+.item-quantity {
+  grid-row: 2 / 3;
+  grid-column: 2 / 3;
 
-  display: flex;
-  justify-content: center;
-  text-align: center;
+  font-size: 35rpx;
+}
+
+.item-actions {
+  grid-row: 1 / 3;
+  grid-column: 3 / 4;
+
+  text-align: end;
+  margin-right: 25rpx;
+}
+
+.item-actions__delete {
+  margin: auto;
+
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.item-quantity__icon {
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.payment-container {
+  width: 90%;
+  height: 10vh;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
   align-items: center;
 
   border-radius: 15px;
@@ -90,13 +112,21 @@
   padding: 20rpx;
 }
 
-.totalPriceText {
-  width: 50%;
+.payment__price {
+  grid-column: 1 / 2;
+  
+  color: firebrick;
+
+  font-size: 40rpx;
+  text-align: center;
 }
 
-.button {
-  height: 60rpx;
+.payment__button {
+  grid-column: 2 / 3;
+
+  height: 70rpx;
   width: 200rpx;
+  margin: 0 auto;
 
   font-size: 30rpx;
   border-radius: 30rpx;
@@ -109,14 +139,3 @@
   align-items: center;
 }
 
-.cancelIcon {
-  grid-row: 1 / 2;
-  grid-column: 1 / 4;
-  width: 50rpx;
-  height: 50rpx;
-}
-
-.arrowIcon {
-  width: 30rpx;
-  height: 30rpx;
-}

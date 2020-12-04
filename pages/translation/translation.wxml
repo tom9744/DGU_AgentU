@@ -2,8 +2,12 @@
 <view class="container">
   <image class="detail__img" src="{{chinaUrl}}" mode="widthFix"></image>
   <view class="translator-card">
-    <text class="card-title">Type anything you want!</text>
-    <textarea id="transText" bindinput="putText" class="text-form" type="text" placeholder="put your article"/>
+    <text class="card-title">请写下你想说的!</text>
+    <textarea id="transText" bindinput="putText" class="text-form" type="text" placeholder="内容"/>
+  </view>
+  <view class="toolView">
+    <image class="toolIcon" src="{{microPhoneUrl}}" bind:touchstart="voiceStart" bind:touchend="offtouch"/>
+    <image class="toolIcon" src="{{megaPhoneUrl}}" bind:touchstart="voiceEnd" bind:touchend="offtouch"/>
   </view>
 
   <view bindtap="translateText">
@@ -12,7 +16,7 @@
 
   <image class="detail__img" src="{{koreaUrl}}" mode="widthFix"></image>
   <view class="translator-card">
-    <text class="card-title">Result</text>
+    <text class="card-title">翻译结果</text>
     <textarea class="text-form" value="{{resultText}}" disabled="true"></textarea>
   </view>
 </view>

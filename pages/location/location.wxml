@@ -2,19 +2,19 @@
 <view class="container">
   <view class="place-info">
     <view>
-      <text style="font-weight: 600; font-size: 24px;">편의시설 찾기</text>
+      <text style="font-weight: 600; font-size: 24px;">设施清单</text>
     </view>
   </view>
 
   <scroll-view scroll-x="true" class="filter">
-    <view id="0" class="filter-tab {{filterNumber == 0 ? 'selected' : ''}}" bindtap="onFilterChange">전체</view>
-    <view id="1" class="filter-tab {{filterNumber == 1 ? 'selected' : ''}}" bindtap="onFilterChange">식당</view>
-    <view id="2" class="filter-tab {{filterNumber == 2 ? 'selected' : ''}}" bindtap="onFilterChange">보건소</view>
+    <view id="0" class="filter-tab {{filterNumber == 0 ? 'selected' : ''}}" bindtap="onFilterChange">所有</view>
+    <view id="1" class="filter-tab {{filterNumber == 1 ? 'selected' : ''}}" bindtap="onFilterChange">餐厅</view>
+    <view id="2" class="filter-tab {{filterNumber == 2 ? 'selected' : ''}}" bindtap="onFilterChange">医务室</view>
     <view id="3" class="filter-tab {{filterNumber == 3 ? 'selected' : ''}}" bindtap="onFilterChange">ATM</view>
-    <view id="4" class="filter-tab {{filterNumber == 4 ? 'selected' : ''}}" bindtap="onFilterChange">은행</view>
-    <view id="5" class="filter-tab {{filterNumber == 5 ? 'selected' : ''}}" bindtap="onFilterChange">편의점</view>
-    <view id="6" class="filter-tab {{filterNumber == 6 ? 'selected' : ''}}" bindtap="onFilterChange">우체국</view>
-    <view id="7" class="filter-tab {{filterNumber == 7 ? 'selected' : ''}}" bindtap="onFilterChange">카페</view>
+    <view id="4" class="filter-tab {{filterNumber == 4 ? 'selected' : ''}}" bindtap="onFilterChange">银行</view>
+    <view id="5" class="filter-tab {{filterNumber == 5 ? 'selected' : ''}}" bindtap="onFilterChange">方便</view>
+    <view id="6" class="filter-tab {{filterNumber == 6 ? 'selected' : ''}}" bindtap="onFilterChange">邮政局</view>
+    <view id="7" class="filter-tab {{filterNumber == 7 ? 'selected' : ''}}" bindtap="onFilterChange">咖啡店</view>
   </scroll-view>
 
   <!-- 메뉴 출력을 위한 Y축 스크롤 View -->
@@ -62,7 +62,7 @@
               class="button"
               bindtap="{{item.isOperating ? 'gotoMenu' : ''}}"
               style="background-color : {{item.isOperating ? '' : 'lightgrey'}};"
-            >{{ item.isOperating ? '메뉴 보기' : '운영 종료'}}
+            >{{ item.isOperating ? '选单检视' : '作业期限'}}
             </text>
 
             <text
@@ -70,7 +70,7 @@
               id="{{item.id}}" 
               class="button"
               style="background-color : {{ item.isOperating ? 'rgb(70, 139, 85)' : 'lightgrey' }};"
-            >{{ item.isOperating ? '운영중' : '운영 종료'}}
+            >{{ item.isOperating ? '操作' : '作业期限'}}
             </text>
           </view>
         </view>

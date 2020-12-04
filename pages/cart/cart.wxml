@@ -1,35 +1,40 @@
 <!--pages/Shoppingcart/Shoppingcart.wxml-->
 <view class="container">
-  <view class="container-title"> 
-    장바구니 목록을 확인하고 결제해주세요.
-  </view>
-
-  <view class="container-card">
-    <view class="item-card" wx:for="{{items}}" wx:for-index="idx" wx:key="menuId">
-      <view class="menuText">
-        {{item.name}}
+  <view class="card-list">
+    <view class="card" wx:for="{{items}}" wx:for-index="idx" wx:key="menuId">
+      <view class="card__title item-name">{{item.name}}
+        <!-- 알레르기 성분이 포함된 메뉴의 경우, 해당 알레르기 유발 성분 이미지를 삽입한다. -->
+        <block wx:if="{{item.allergies.length > 0}}">
+          <block wx:for="{{item.allergies}}" wx:key="menuId">
+            <image 
+              style="margin: 5rpx; width: 40rpx; height: 40rpx;" 
+              src="../../resources/images/allergies/{{item}}.png" 
+              mode="widthFix"> 
+            </image>
+          </block>
+        </block>
       </view>
 
-      <view class="numText">
-        <image class="arrowIcon" id="{{idx}}" bindtap="numUp" src="../../resources/images/up.png" />
-         {{item.quantity}} ea
-        <image class="arrowIcon" id="{{idx}}" bindtap="numDown" src="../../resources/images/down.png" />
-          <!-- {{item.quantity}} ea -->
-          
-      </view>
-
-      <view class="priceText">
+      <view class="card__body item-price">
         ¥{{item.price}} 
       </view>
 
-      <view> <!--삭제 아이콘-->
-        <image id="{{item.menuId}}" class="cancelIcon" src="../../resources/images/cancel.png" bindtap="delFromCart"/>
+      <view class="card__body item-quantity">
+        <image class="item-quantity__icon" id="{{idx}}" bindtap="numDown" src="../../resources/images/down.png" />
+         {{item.quantity}} EA
+        <image class="item-quantity__icon" id="{{idx}}" bindtap="numUp" src="../../resources/images/up.png" />
+          
+      </view>
+
+      <view class="item-actions"> 
+        <!--삭제 아이콘-->
+        <image id="{{item.menuId}}" class="item-actions__delete" src="../../resources/images/cancel.png" bindtap="delFromCart"/>
       </view>
     </view>
   </view>
 
-  <view class="totalPriceContainer">
-    <text class="totalPriceText">¥{{totalPrice}} $</text>
-    <text class="button" bindtap="goToPurchase">결제하기</text>
+  <view class="payment-container">
+    <text class="payment__price">总价 ¥{{totalPrice}}</text>
+    <text class="payment__button" bindtap="checkOut">进行付款</text>
   </view>
 </view>

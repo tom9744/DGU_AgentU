@@ -1,0 +1,41 @@
+/* pages/purchasecomplete/purchasecomplete.wxss */
+.container {
+  height: 100vh;
+  width: 100vw;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.body {
+  margin: 20rpx auto;
+}
+
+.icon {
+  width: 100rpx;
+}
+
+.payment-status {
+  font-size: 65rpx;
+  font-weight: 500;
+}
+
+.button {
+  height: 85rpx;
+  width: 250rpx;
+
+  font-size: 35rpx;
+  border-radius: 45rpx;
+
+  color: white;
+  background-color: rgb(255, 142, 142);
+
+  box-shadow: 0px 2px 6px 0px gray;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin: 60rpx 0rpx;
+}
