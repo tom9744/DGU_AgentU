@@ -22,6 +22,13 @@
   z-index: 1;
 }
 
+.detail__switch {
+  /* 이미지 카드 상단에 부착 및 마진 제거 */
+  grid-column: 1 / 2;
+  justify-content: flex-start;
+  margin-bottom : 1vh;
+}
+
 .arrow {
   /* position: relative;
   top: 50rpx;
@@ -34,8 +41,9 @@
 
 .toolView {
   width: 90%;
-  display: flex;
-  justify-content: flex-end;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-content: center;
 }
 
 .toolIcon {
@@ -63,6 +71,12 @@
 .card-title {
   margin-bottom: 10px;
   font-weight: 500;
+}
+
+.card-title-first {
+  margin-bottom: 10px;
+  font-weight: 500;
+  grid-column: 2 / 4;
 }
 
 .text-form {
