@@ -77,8 +77,33 @@ Page({
     });
   },
 
+  clearCart() {
+    wx.setStorage({ 
+      // 로컬 스토리지에 변경 사항 저장
+      data: [],
+      key: 'Cart',
+    });
+
+    // Data Model 값 초기화
+    this.setData({
+      items: [],
+      totalPrice: 0
+    });
+  },
+
   checkOut() {
     let isSuccessful = false
+
+    // If the cart is empty, does not proceed the payment
+    if (this.data.totalPrice == 0) {
+      wx.showModal({
+        title: '发生错误',
+        content: '您的购物车是空的。请添加项目。',
+        showCancel: false,
+      })
+
+      return;
+    }
 
     wx.login({
       timeout: 5000,
@@ -114,10 +139,12 @@ Page({
                   console.log("Assumes that the payment was successful...");
                   
                   setTimeout(()=>{
-                    // 1초간 대기 후, 결제 여부 페이지로 이동
+                    this.clearCart();
+
+                    // 0.5초간 대기 후, 결제 결과 페이지로 이동
                     wx.navigateTo({
                       url: '/pages/payment/payment?isSuccessful=' + isSuccessful
-                    }, 1000)
+                    }, 500)
                   })
                 }
               })

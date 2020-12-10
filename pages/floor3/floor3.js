@@ -3,10 +3,6 @@
 const CURRENCY = 0.0059;
 
 Page({
-
-  /**
-   * Page initial data
-   */
   data: {
     possibleAllergies: ["none", "gluten", "shellfish", "fish", "eggs", "peanut", "soybean", "dairy", "nuts"],
     containedAllergies: [],
@@ -53,11 +49,9 @@ Page({
       method: 'GET',
       success: ({ data }) => {
         console.log("Data from server has been successfully received!")
-        
-        const menuInfo = data.pop();
 
+        const menuInfo = data.pop();
         console.log(menuInfo);
-        
 
         const foodList = menuInfo.food_name.split("、");
         const allergyList = menuInfo.allergy_list.substring(1, menuInfo.allergy_list.length - 1).split(", ")
@@ -98,7 +92,7 @@ Page({
     // 기존 메뉴 데이터와 동일한 형식으로 JSON 생성
     const targetItem = {
       menuId: 9999999999,
-      name: "교직원식당 중식",
+      name: "今天的菜单",
       price: 36,
       allergies: this.data.containedAllergies,
     }

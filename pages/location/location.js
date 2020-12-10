@@ -5,7 +5,7 @@ const checkOperation = (operatingTime) => {
     return false;
   }
   else {
-    const isWeekdayOnly = operatingTime.split(" ")[0] === "(평일)";
+    const isWeekdayOnly = operatingTime.split(" ")[0] === "(平日)";
 
     let startTime = "";
     let endTime = "";
@@ -15,7 +15,7 @@ const checkOperation = (operatingTime) => {
     const now = new Date();
     const day = now.getDay();
 
-    // [Pre-Processing] Remove "(평일)" from the string.
+    // [Pre-Processing] Remove "(平日)" from the string.
     if (isWeekdayOnly) {
       operatingTime = operatingTime.split(" ")[1];
     }
@@ -45,6 +45,7 @@ const checkOperation = (operatingTime) => {
 
 Page({
   data: {
+    // Data related to filtering is set to Korean for developer's conveinence.
     facilityChinese: ["식당", "보건소", "ATM", "은행", "편의점", "우체국", "카페"],
     facilityEnglish: ["food", "medic", "atm", "bank", "cvs", "post", "cafe"],
 
@@ -53,6 +54,7 @@ Page({
 
     facility: [],
   },
+
   onLoad() {
     console.log("The Page has been successfully loaded!");
     
@@ -94,9 +96,10 @@ Page({
             facility.location = item.facility_location;
             facility.category = this.data.facilityChinese[typeIndex - 1];
             facility.operatingTime = item.facility_operation != null ? item.facility_operation : "关掉";
-            facility.iconPath = `/resources/images/markers/${this.data.facilityEnglish[typeIndex - 1]}.svg`;
-            // facility.isOperating = checkOperation(item.facility_operation);
-            facility.isOperating = true;
+            // facility.iconPath = `/resources/images/markers/${this.data.facilityEnglish[typeIndex - 1]}.svg`;
+            facility.isOperating = checkOperation(item.facility_operation);
+            // FOR DEBUGGING
+            // facility.isOperating = true;
   
             // Add a new array element to the JSON Object Array.
             facilities.push(facility);
@@ -120,7 +123,7 @@ Page({
     
           success (res) {
             if (res.confirm) {
-              console.log('"OK" is tapped')
+              // console.log('"OK" is tapped')
             }
           }
         })
@@ -138,7 +141,7 @@ Page({
     const facilityId = event.target.id; 
     const facilityData = this.data.facility[facilityId - 1];
 
-    if (facilityData.name === "교직원식당") {
+    if (facilityData.name === "教职员食堂") {
       wx.navigateTo({
         // Send Essential Facility Data to the next page. 
         url: '../../pages/floor3/floor3?id=' + facilityId + '&title=' + facilityData.name + '&location=' + facilityData.location + '&operatingTime=' + facilityData.operatingTime

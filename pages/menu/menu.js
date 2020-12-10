@@ -1,6 +1,6 @@
 // pages/menu/menu.js
 
-const CURRENCY = 0.0059;
+const CURRENCY = 0.0060; // Won-Yuan Rate 20.12.10
 
 Page({
 

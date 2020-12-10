@@ -3,10 +3,10 @@
     <image class="icon" src="../../resources/images/{{isSuccessful ? 'success' : 'failure'}}.png" mode="widthFix"/>
 
     <view class="body">
-      <text class="payment-status">{{isSuccessful ? "결제 성공!" : "결제 실패..."}}</text>
+      <text class="payment-status">{{isSuccessful ? "付款成功!" : "付款失败..."}}</text>
     </view>
 
     <view class="body">
-      <view class="button" bindtap="onClick">{{isSuccessful ? "결제내역 보기" : "이전 화면으로"}}</view>
+      <view class="button" bindtap="onClick">{{isSuccessful ? "查看付款明细" : "转到上一个屏幕"}}</view>
     </view>
   </view>

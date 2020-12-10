@@ -12,15 +12,15 @@
   </view>
 
   <scroll-view scroll-x="true" class="filter">
-    <view id="0" class="filter-tab {{filterNumber == 0 ? 'selected' : ''}}" bindtap="onFilterChange">전체</view>
-    <view id="1" class="filter-tab {{filterNumber == 1 ? 'selected' : ''}}" bindtap="onFilterChange">글루텐</view>
-    <view id="2" class="filter-tab {{filterNumber == 2 ? 'selected' : ''}}" bindtap="onFilterChange">조개류</view>
-    <view id="3" class="filter-tab {{filterNumber == 3 ? 'selected' : ''}}" bindtap="onFilterChange">어류</view>
-    <view id="4" class="filter-tab {{filterNumber == 4 ? 'selected' : ''}}" bindtap="onFilterChange">난류</view>
-    <view id="5" class="filter-tab {{filterNumber == 5 ? 'selected' : ''}}" bindtap="onFilterChange">땅콩</view>
-    <view id="6" class="filter-tab {{filterNumber == 6 ? 'selected' : ''}}" bindtap="onFilterChange">대두</view>
-    <view id="7" class="filter-tab {{filterNumber == 7 ? 'selected' : ''}}" bindtap="onFilterChange">유제품</view>
-    <view id="8" class="filter-tab {{filterNumber == 8 ? 'selected' : ''}}" bindtap="onFilterChange">견과류</view>
+    <view id="0" class="filter-tab {{filterNumber == 0 ? 'selected' : ''}}" bindtap="onFilterChange">所有</view>
+    <view id="1" class="filter-tab {{filterNumber == 1 ? 'selected' : ''}}" bindtap="onFilterChange">麸质</view>
+    <view id="2" class="filter-tab {{filterNumber == 2 ? 'selected' : ''}}" bindtap="onFilterChange">贝类</view>
+    <view id="3" class="filter-tab {{filterNumber == 3 ? 'selected' : ''}}" bindtap="onFilterChange">鱼</view>
+    <view id="4" class="filter-tab {{filterNumber == 4 ? 'selected' : ''}}" bindtap="onFilterChange">蛋</view>
+    <view id="5" class="filter-tab {{filterNumber == 5 ? 'selected' : ''}}" bindtap="onFilterChange">花生</view>
+    <view id="6" class="filter-tab {{filterNumber == 6 ? 'selected' : ''}}" bindtap="onFilterChange">大豆</view>
+    <view id="7" class="filter-tab {{filterNumber == 7 ? 'selected' : ''}}" bindtap="onFilterChange">乳业</view>
+    <view id="8" class="filter-tab {{filterNumber == 8 ? 'selected' : ''}}" bindtap="onFilterChange">坚果</view>
   </scroll-view>
 
   <!-- 메뉴 출력을 위한 Y축 스크롤 View -->

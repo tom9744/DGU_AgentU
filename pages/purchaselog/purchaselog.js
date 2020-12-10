@@ -39,11 +39,13 @@ Page({
   useTicket(event) {
     const hid = event.target.dataset.hid;
     const iid = event.target.dataset.iid;
-    if (this.data.purchaseHistory[hid].purchaseItems[iid].isUsedTicket == false) {
+    const tagetItem = this.data.purchaseHistory[hid].purchaseItems[iid];
+
+    if (tagetItem.isUsedTicket == false) {
       wx.showModal({
-        title: '식당 아주머니께 보여드리세요!',
-        content: '식당 아주머니만 확인 버튼을 눌러주세요!',
-        cancelText: '취소',
+        title: '您想使用餐票吗？',
+        content: `[${tagetItem.name}] 품목에 대한 주문접수와 해당 식당 관계자임을 확인합니다. `,
+        cancelText: '取消',
         confirmText: '확인',
         success: (res) => {
           if (res.confirm) {
