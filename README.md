@@ -12,16 +12,16 @@
 ***
 
 ### 구현 결과물
-![메인 페이지](../results/MainPage.jpg "메인 페이지")
-![편의시설 목록](../results/Places.jpg "편의시설 목록")
-![결제내역 및 식권발급](../results/PurchaseHistory.jpg "결제내역 및 식권발급")
-![변역 API](../results/Translation.jpg "변역 API")
+![메인 페이지](../master/results/MainPage.jpg "메인 페이지")
+![편의시설 목록](../master/results/Places.jpg "편의시설 목록")
+![결제내역 및 식권발급](../master/results/PurchaseHistory.jpg "결제내역 및 식권발급")
+![변역 API](../master/results/Translation.jpg "변역 API")
 
 ***
   
 ### 함께한 사람들
 > #### 프론트엔드  
->> _팀장_ [양준영](https://github.com/tom9744)
+>> [양준영](https://github.com/tom9744)(_팀장_)
 >> [김민수](https://github.com/Rush-K) 
 > #### 백엔드  
 >> [안우석](https://github.com/wooseokAnDgu) 
