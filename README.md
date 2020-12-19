@@ -9,7 +9,7 @@
 
 
 ### 구현 결과물
-![구현 결과물 이미지](../master/results/Result.jpg)
+![구현 결과물 이미지](../master/results/Result.png)
 
 
 ### 함께한 사람들
