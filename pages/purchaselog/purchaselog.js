@@ -5,10 +5,10 @@ Page({
     listUrl : "https://www.flaticon.com/svg/static/icons/svg/2645/2645879.svg",
     moneyUrl: "https://www.flaticon.com/svg/static/icons/svg/678/678931.svg",
 
-    purchaseHistory: [],
+    purchaseLog: [],
   },
 
-  onLoad: function() {
+  onShow: function() {
     // 로딩 창 표시
     wx.showLoading({
       title: 'Loading',
@@ -16,17 +16,20 @@ Page({
     })
 
     wx.login({
-      timeout: 5000,
+      timeout: 3000,
       success: (response) => {
         // wx.login 시도 후, 토큰이 발급된 경우 다음 로직 실행
         if(response.code) {
           wx.request({
+          timeout: 3000,
           url: `https://team1.miniform.kr:3010/log`,
           method:'GET',
           data:{
             id: response.code,
           },
           success:({ data }) => {
+            console.log(data);
+            
             let purchaseLogs = new Array();
             let tempObject= new Object();
             let logId = 0;
@@ -65,16 +68,16 @@ Page({
                 else {
                   // 임시 객체를 초기화하고, 결제 목록에 해당 항목 추가
                   tempObject= new Object();
-                  purchaseLogs.unshift(log);
+                  purchaseLogs.push(log);
                 }
               }
               // 마지막 인덱스는 바로 결제 항목에 추가
               else {
-                purchaseLogs.unshift(log);
+                purchaseLogs.push(log);
               }
             }
             this.setData({
-              purchaseHistory : purchaseLogs
+              purchaseLog : purchaseLogs
             });
           },
           fail: () => {
@@ -89,13 +92,14 @@ Page({
             wx.hideLoading();
           }
         })
-      }}})
+      }}
+    })
   },
 
   useTicket({ target : { dataset : { hid : logId, iid : itemId } } }) {
-    const targetHistoryIdx = this.data.purchaseHistory.findIndex(object => object.logId === logId);
-    const targetItemIdx = this.data.purchaseHistory[targetHistoryIdx].purchaseItems.findIndex(object => object.itemId === itemId);
-    const targetItem = this.data.purchaseHistory[targetHistoryIdx].purchaseItems[targetItemIdx];
+    const targetHistoryIdx = this.data.purchaseLog.findIndex(object => object.logId === logId);
+    const targetItemIdx = this.data.purchaseLog[targetHistoryIdx].purchaseItems.findIndex(object => object.itemId === itemId);
+    const targetItem = this.data.purchaseLog[targetHistoryIdx].purchaseItems[targetItemIdx];
     
     if (targetItem.isUsedTicket == false) {
       wx.showModal({
@@ -104,13 +108,13 @@ Page({
         cancelText: '取消',
         confirmText: '확인',
         success: (response) => {
-          const temp = this.data.purchaseHistory;
+          const temp = this.data.purchaseLog;
           if (response.confirm) {
             temp[targetHistoryIdx].purchaseItems[targetItemIdx].isUsedTicket = true;
           } else if (response.cancel) {
             temp[targetHistoryIdx].purchaseItems[targetItemIdx].isUsedTicket = false;
           }
-          this.setData({ purchaseHistory: temp });
+          this.setData({ purchaseLog: temp });
         }
       });
     }

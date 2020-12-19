@@ -2,12 +2,13 @@
 <view class="container">
   <view class="card-list">
     <view class="card" wx:for="{{items}}" wx:for-index="idx" wx:key="menuId">
-      <view class="card__title item-name">{{item.name}}
+      <view class="card__title item-name">{{item.name}}</view>
+      <view class="item-allergy">
         <!-- 알레르기 성분이 포함된 메뉴의 경우, 해당 알레르기 유발 성분 이미지를 삽입한다. -->
         <block wx:if="{{item.allergies.length > 0}}">
           <block wx:for="{{item.allergies}}" wx:key="menuId">
             <image 
-              style="margin: 5rpx; width: 40rpx; height: 40rpx;" 
+              style="margin: 5rpx; width: 45rpx;" 
               src="../../resources/images/allergies/{{item}}.png" 
               mode="widthFix"> 
             </image>

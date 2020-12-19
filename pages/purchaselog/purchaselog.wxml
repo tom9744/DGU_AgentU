@@ -1,15 +1,15 @@
 <!--pages/userProfile/userProfile.wxml-->
 <view class="container">
-  <view class="card" wx:for="{{purchaseHistory}}" wx:for-item="history" wx:key="logId">
+  <view wx:if="{{!isEmpty}}" class="card" wx:for="{{purchaseLog}}" wx:for-item="purchaseLog" wx:key="logId">
 
     <view class="wrapper">
       <image src="{{calendarUrl}}" class="icons" mode="widthFix"></image>
-      <text style="font-size: 35rpx; font-weight: 400;">支付日期: {{history.purchaseDate}}</text>
+      <text style="font-size: 35rpx; font-weight: 400;">支付日期: {{purchaseLog.purchaseDate}}</text>
     </view>
 
     <view class="price-wrapper">
       <image src="{{moneyUrl}}" class="icons" style="width: 8vw;" mode="widthFix"></image>
-      <text>付款: ¥{{history.purchasePrice}}</text>
+      <text>付款: ¥{{purchaseLog.purchasePrice}}</text>
     </view>
 
     <view class="wrapper">
@@ -17,16 +17,16 @@
       <text style="font-size: 35rpx; font-weight: 400;">付款清单</text>
     </view>
 
-    <block wx:for="{{history.purchaseItems}}" wx:key="itemId">
+    <block wx:for="{{purchaseLog.purchaseItems}}" wx:key="itemId">
       <view class="ticket">
-        <text class="itemname">{{item.name}}</text>
+        <view class="itemname">{{item.name}}</view>
         <view 
           class="button" 
-          data-hid="{{history.logId}}" 
+          data-hid="{{purchaseLog.logId}}" 
           data-iid="{{item.itemId}}" 
           bindtap="useTicket" 
           style="background-color : {{ item.isUsedTicket == false ? '' : 'lightgrey'}}"
-        >用餐券的使用</view>
+        >采用</view>
       </view>
     </block>
   </view>
