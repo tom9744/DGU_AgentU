@@ -23,31 +23,31 @@
         "pagePath": "pages/home/home",
         "iconPath": "/resources/images/tabBar/home.png",
         "selectedIconPath": "/resources/images/tabBar/home-color.png",
-        "text": "Home"
+        "text": "主要" 
       },
       {
         "pagePath": "pages/location/location",
         "iconPath": "/resources/images/tabBar/placeholder.png",
         "selectedIconPath": "/resources/images/tabBar/placeholder-color.png",
-        "text": "Places"
+        "text": "地方"
       },
       {
         "pagePath": "pages/translation/translation",
         "iconPath": "/resources/images/tabBar/translator.png",
         "selectedIconPath": "/resources/images/tabBar/translator-color.png",
-        "text": "Translation"
+        "text": "翻译"
       },
       {
         "pagePath": "pages/cart/cart",
         "iconPath": "/resources/images/tabBar/shopping-cart.png",
         "selectedIconPath": "/resources/images/tabBar/shopping-cart-color.png",
-        "text": "Cart"
+        "text": "大车"
       },
       {
         "pagePath": "pages/purchaselog/purchaselog",
         "iconPath": "/resources/images/tabBar/purchase-log.png",
         "selectedIconPath": "/resources/images/tabBar/purchase-log-color.png",
-        "text": "Purchase log"
+        "text": "购买记录"
       }
     ]
   },

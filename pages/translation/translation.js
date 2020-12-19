@@ -18,7 +18,7 @@ Page({
     microPhoneUrl: '../../resources/images/microphone.png',
 
     sendText: "",
-    resultText: 'Click the arrow above to see the result!' // 번역 결과가 이쪽으로 와야함
+    resultText: '单击上方的箭头查看结果!' // 번역 결과가 이쪽으로 와야함
   },
 
   /**

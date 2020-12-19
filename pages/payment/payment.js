@@ -1,9 +1,5 @@
 // pages/purchasecomplete/purchasecomplete.js
 Page({
-
-  /**
-   * Page initial data
-   */
   data: {
     isSuccessful: false
   },

@@ -85,6 +85,7 @@ Page({
             food.menuId = id;
             food.name = item.food_name;
             food.price = Math.round(item.food_price * CURRENCY);
+            food.food_id = item.food_id;
             food.allergies = new Array();
             
             if(item.allergy_list !== null) {
@@ -132,7 +133,7 @@ Page({
 
   addToCart({ target }) {
     const targetItem = this.data.menu[target.id];
-
+    console.log(targetItem)
     wx.getStorage({
       key: 'Cart',
       success: ({ data }) => {
@@ -140,7 +141,7 @@ Page({
         let isAlreadyExist = false;
         let totalPrice = 0; 
         let index = 0;
-
+        let food_id = 0;
         // Check if the selected item is already in a shopping cart.
         for (let item of currentCart) {
           if (item.name === targetItem.name) {

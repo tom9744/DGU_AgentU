@@ -20,9 +20,9 @@
       </view>
 
       <view class="card__body item-quantity">
-        <image class="item-quantity__icon" id="{{idx}}" bindtap="numDown" src="../../resources/images/down.png" />
+        <image class="item-quantity__icon" id="{{idx}}" data-action="decrease" bindtap="changeQuantity" src="../../resources/images/down.png" />
          {{item.quantity}} EA
-        <image class="item-quantity__icon" id="{{idx}}" bindtap="numUp" src="../../resources/images/up.png" />
+        <image class="item-quantity__icon" id="{{idx}}" data-action="increase" bindtap="changeQuantity" src="../../resources/images/up.png" />
           
       </view>
 

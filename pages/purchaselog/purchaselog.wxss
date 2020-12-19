@@ -15,7 +15,8 @@
 }
 
 .ticket {
-  width: 90%;  /* 가로 길이 85% */
+  width: 95%;  /* 가로 길이 85% */
+  height: 60rpx;
   
   display: grid;
   grid-template-rows: 1fr;
@@ -26,11 +27,13 @@
   box-shadow: 0rpx 1rpx 5rpx 1rpx gray;
 
   margin: 20rpx 0rpx;
-  padding: 35rpx;
+  padding: 20rpx;
 }
+
 .itemname {
   grid-row : 1 / 2;
 }
+
 .button {
   height: 60rpx;
   width: 200rpx;

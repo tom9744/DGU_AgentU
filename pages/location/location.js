@@ -28,7 +28,7 @@ const checkOperation = (operatingTime) => {
     end.setMinutes(endTime.split(":")[1]);
 
     // When the facility runs only on weekdays and today either Saturday or Sunday.
-    if (isWeekdayOnly && day === 0 || day === 6)
+    if (isWeekdayOnly && (day === 0 || day === 6))
     {
       return false;
     }
@@ -39,7 +39,7 @@ const checkOperation = (operatingTime) => {
     }
     
     // When the current time hasn't reached the opening time or has passed the closing time.
-    return false;
+    return true;
   }
 }
 
