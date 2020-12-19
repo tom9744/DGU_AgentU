@@ -28,13 +28,13 @@
 
       <view class="item-actions"> 
         <!--삭제 아이콘-->
-        <image id="{{item.menuId}}" class="item-actions__delete" src="../../resources/images/cancel.png" bindtap="delFromCart"/>
+        <image id="{{item.menuId}}" class="item-actions__delete" src="../../resources/images/cancel.png" bindtap="removeItem"/>
       </view>
     </view>
   </view>
 
   <view class="payment-container">
     <text class="payment__price">总价 ¥{{totalPrice}}</text>
-    <text class="payment__button" bindtap="checkOut">进行付款</text>
+    <text class="payment__button" bindtap="confirmCheckout">进行付款</text>
   </view>
 </view>

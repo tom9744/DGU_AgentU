@@ -26,10 +26,41 @@ Page({
     });
   },
 
-  delFromCart ({target}) {
-    let targetItem;
+  changeQuantity({ target }) {
+    const itemIndex = target.id;
+    let items = this.data.items;
+    let totalPrice = 0;
 
-    for (let index of this.data.items) { // 삭제할 항목을 탐색
+    // 버튼 종류에 따라 다른 Action을 취한다
+    if (target.dataset.action === "increase") {
+      items[itemIndex].quantity = items[itemIndex].quantity + 1; // 수량 추가
+    } else if (target.dataset.action === "decrease") {
+      if ( items[itemIndex].quantity <= 1) { 
+        // 수량이 1개인 경우, 더 이상 감소하지 못하게 한다.
+        return;
+      }
+      items[itemIndex].quantity = items[itemIndex].quantity - 1; // 수량 감소
+    }
+
+    for(let item of items) {
+      totalPrice += parseInt(item.price * item.quantity);
+    }
+
+    wx.setStorage({ // 다시 저장
+      data: items,
+      key: 'Cart',
+    });
+
+    this.setData({
+      items: items,
+      totalPrice: totalPrice
+    });
+  },
+
+  removeItem({ target }) {
+    let targetItem;
+    // 삭제할 항목을 탐색
+    for (let index of this.data.items) { 
       if (index.menuId == target.id) {
         targetItem = index;
       }
@@ -83,9 +114,7 @@ Page({
     });
   },
 
-  checkOut() {
-    let isSuccessful = false
-
+  confirmCheckout() {
     // If the cart is empty, does not proceed the payment
     if (this.data.totalPrice == 0) {
       wx.showModal({
@@ -93,10 +122,28 @@ Page({
         content: '您的购物车是空的。请添加项目。',
         showCancel: false,
       })
-
       return;
     }
 
+    wx.showModal({
+      title: '您要继续吗？',
+      content: `我已经检查了购物车中的所有物品。`,
+      cancelText: '取消',
+      confirmText: '确认',
+      confirmColor: 'green',
+      success: (response) => {
+        if (response.confirm) {
+          this.requestPayment();
+        } else if (response.cancel) {
+          return;
+        }
+      }
+    });
+  },
+
+  requestPayment() {
+    let isSuccessful = false
+    
     wx.login({
       timeout: 5000,
       success: (response) => {
@@ -201,37 +248,6 @@ Page({
           showCancel: false,
         })
       }
-    });
-  },
-
-  changeQuantity({ target }) {
-    const itemIndex = target.id;
-    let items = this.data.items;
-    let totalPrice = 0;
-
-    // 버튼 종류에 따라 다른 Action을 취한다
-    if (target.dataset.action === "increase") {
-      items[itemIndex].quantity = items[itemIndex].quantity + 1; // 수량 추가
-    } else if (target.dataset.action === "decrease") {
-      if ( items[itemIndex].quantity <= 1) { 
-        // 수량이 1개인 경우, 더 이상 감소하지 못하게 한다.
-        return;
-      }
-      items[itemIndex].quantity = items[itemIndex].quantity - 1; // 수량 감소
-    }
-
-    for(let item of items) {
-      totalPrice += parseInt(item.price * item.quantity);
-    }
-
-    wx.setStorage({ // 다시 저장
-      data: items,
-      key: 'Cart',
-    });
-
-    this.setData({
-      items: items,
-      totalPrice: totalPrice
     });
   }
 })
