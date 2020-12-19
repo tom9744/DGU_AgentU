@@ -1,4 +1,3 @@
-// pages/userProfile/userProfile.js
 Page({
   data: {
     calendarUrl: "https://www.flaticon.com/svg/static/icons/svg/2370/2370264.svg",
@@ -54,8 +53,10 @@ Page({
 
               let item = new Object();
               item.itemId = itemId++;  // 임의의 ID 추가
-              item.name = data[index].food_name;
-              item.isUsedTicket = false;
+              item.name = `${data[index].food_name} X ${data[index].count}`;
+              item.list_id = data[index].list_id;
+              item.isUsedTicket = data[index].useTicket;
+
               log.purchaseItems.push(item)
 
               // 마지막 인덱스 제외 (Overflow 방지)
@@ -109,8 +110,31 @@ Page({
         confirmText: '확인',
         success: (response) => {
           const temp = this.data.purchaseLog;
+          console.log(temp);
+          
           if (response.confirm) {
             temp[targetHistoryIdx].purchaseItems[targetItemIdx].isUsedTicket = true;
+            let list_id = temp[targetHistoryIdx].purchaseItems[targetItemIdx].list_id;
+
+            wx.login({
+              timeout: 3000,
+              success: (response) => {
+                // wx.login 시도 후, 토큰이 발급된 경우 다음 로직 실행
+                if(response.code) {
+                  wx.request({
+                    url: `https://team1.miniform.kr:3010/ticket`,
+                    method:'GET',
+                    data:{
+                      id: response.code,
+                      list_id : list_id
+                    },
+                    success:({ data }) => {
+                      console.log("Ticket has successfully used! " + list_id);
+                    }
+                  })
+                }
+              }
+            });
           } else if (response.cancel) {
             temp[targetHistoryIdx].purchaseItems[targetItemIdx].isUsedTicket = false;
           }

@@ -19,7 +19,7 @@
   
   display: grid;
   grid-template-rows: 1fr;
-  grid-template-columns: 3fr 1fr;
+  grid-template-columns: 5fr 1fr;
   align-items: center;
 
   border-radius: 30rpx;
@@ -36,7 +36,7 @@
 .button {
   margin: 0rpx auto;
   height: 60rpx;
-  width: 120rpx;
+  width: 100rpx;
 
   border-radius: 30rpx;
   grid-column: 2 / 3;
