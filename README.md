@@ -12,6 +12,17 @@
 ![구현 결과물 이미지](../master/results/Result.png)
 
 
+### 기술 스택
+1. 프론트엔드
+  - WXML, WXSS, WXS
+  - Javascript ES5, ES6
+  - Weixin DevTool - MVVM Framework
+2. 백엔드
+  - Node.js Express
+  - Loopback API v3
+  - AWS EC2 (Ubuntu)
+
+
 ### 함께한 사람들
 > #### 프론트엔드  
 >> [양준영](https://github.com/tom9744)(팀장)  
