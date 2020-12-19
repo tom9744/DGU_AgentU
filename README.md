@@ -9,10 +9,7 @@
 
 
 ### 구현 결과물
-<img width="150" src="../master/results/MainPage.jpg" alt="메인 페이지" title="메인 페이지">
-<img width="150" src="../master/results/Places.jpg" alt="편의시설 목록" title="편의시설 목록">
-<img width="150" src="../master/results/PurchaseHistory.jpg" alt="결제내역 및 식권발급" title="결제내역 및 식권발급">
-<img width="150" src="../master/results/Translation.jpg" alt="변역 API" title="변역 API">
+![구현 결과물 이미지](../master/results/Result.jpg)
 
 
 ### 함께한 사람들
