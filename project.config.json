@@ -28,18 +28,20 @@
       "disablePlugins": [],
       "outputPath": ""
     },
+    "enableEngineNative": false,
+    "bundle": false,
     "useIsolateContext": true,
     "useCompilerModule": true,
     "userConfirmedUseCompilerModuleSwitch": false,
+    "userConfirmedBundleSwitch": false,
     "packNpmManually": false,
     "packNpmRelationList": [],
-    "enableEngineNative": false,
     "minifyWXSS": true
   },
   "compileType": "miniprogram",
   "libVersion": "2.13.1",
   "appid": "wx5be09fc9ea2bb7af",
-  "projectname": "2020_DGU_AgentU",
+  "projectname": "new",
   "debugOptions": {
     "hidedInDevtools": []
   },
