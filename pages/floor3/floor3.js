@@ -91,7 +91,7 @@ Page({
   addToCart({ target }) {
     // 기존 메뉴 데이터와 동일한 형식으로 JSON 생성
     const targetItem = {
-      menuId: 9999999999,
+      menuId: 1,
       name: "今天的菜单",
       price: 36,
       allergies: this.data.containedAllergies,
